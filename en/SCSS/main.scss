@@ -1,11 +1,71 @@
 @import "config";
 
+// ---------------- HEADER --------------------------
 header{
   background-color: $extraCol;
   border-bottom: 4px solid $mainCol;
   padding: $pad;
+  @include flex;
+  justify-content: space-around;
+
+  @include media($bigPhone){
+    justify-content: space-between;
+  }
+
+  // ---------------- logo ------------------
+  #logo img {
+    width: 100px;
+    height: 100%;
+  }
+
+  // ---------------- header's title ------------------
+  #bigTitle{
+    font: {
+      family: $fontTitle;
+      size: 13vw;
+    }color: $dark;
+    text-align: center;
+    grid-column: span 2;
+    order: 3;
+    @include perfect_center;
+    width: 100%;
+
+    @include media($bigPhone){
+      font-size: 60px;
+    }
+    @include media($tablet){
+      width: auto;
+    }
+  }
+  
+  // ------------- accessibility buttons --------------
+  #accessibility{
+    width: 100%;
+
+    @include media($bigPhone){
+      width: 50%;
+    }
+    div {
+      img{
+      width: 50px;
+      height: auto;
+      }
+      cursor: pointer;
+      text-align: center;
+    }
+    //
+    @include flex;
+    justify-content: space-around;
+
+    @include media($tablet){
+      width: 200px;
+      order: 3;
+    }
+  }
 }
-#logo img {
-  width: 100px;
-  height: 100%;
-}
+// ------------------ HEADER END -----------------
+
+// ---------------- Navigation Bar -----------------
+
+
+//--------------- Navigation Bar End -----------------
