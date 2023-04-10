@@ -1,0 +1,11 @@
+@import "config";
+
+header{
+  background-color: $extraCol;
+  border-bottom: 4px solid $mainCol;
+  padding: $pad;
+}
+#logo img {
+  width: 100px;
+  height: 100%;
+}

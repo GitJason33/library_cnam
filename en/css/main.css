@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+::-moz-selection {
+  background: #005257;
+  color: #BDFF00;
+}
+
+::selection {
+  background: #005257;
+  color: #BDFF00;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #ECF5CE;
+  margin: 0;
+  font-family: iceberg, Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+header {
+  background-color: #ABB981;
+  border-bottom: 4px solid #BDFF00;
+  padding: 7px;
+}
+
+#logo img {
+  width: 100px;
+  height: 100%;
+}/*# sourceMappingURL=main.css.map */
