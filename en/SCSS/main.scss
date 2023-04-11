@@ -3,7 +3,6 @@
 // ---------------- HEADER --------------------------
 header{
   background-color: $extraCol;
-  border-bottom: 4px solid $mainCol;
   padding: $pad;
   @include flex;
   justify-content: space-around;
@@ -20,10 +19,12 @@ header{
 
   // ---------------- header's title ------------------
   #bigTitle{
+    text-shadow: 0px 0px 1px $mainCol;
     font: {
       family: $fontTitle;
-      size: 13vw;
-    }color: $dark;
+      size: 14vw;
+    }
+    color: $dark;
     text-align: center;
     grid-column: span 2;
     order: 3;
@@ -43,7 +44,10 @@ header{
     width: 100%;
 
     @include media($bigPhone){
-      width: 50%;
+      width: 200px;
+    }
+    @include media($tablet){
+      order: 3;
     }
     div {
       img{
@@ -56,16 +60,156 @@ header{
     //
     @include flex;
     justify-content: space-around;
-
-    @include media($tablet){
-      width: 200px;
-      order: 3;
-    }
+    align-items: center;
   }
 }
 // ------------------ HEADER END -----------------
 
 // ---------------- Navigation Bar -----------------
+#navBar{
+  position: sticky;
+  top: 0;
+  border-bottom: 4px solid $mainCol;
+  padding: $pad 0;
+  background-color: $extraCol;
 
+  @include flex;
+  justify-content: space-between;
 
-//--------------- Navigation Bar End -----------------
+  section div {
+    font: {
+      size: 20px;
+      weight: bold;
+    }
+    img{
+      width: 25px;
+      height: auto;
+    }
+    cursor: pointer;
+    border-right: 2px solid $dark;
+    padding: 0 $pad;
+  }
+  //-------------- home ---------------
+  #homeButton span{ 
+    display: none;
+    @include media($bigPhone){ display: inline; }
+  }
+  // ------------- side flexes --------------
+  #rightNav, #leftNav {
+    @include flex($wrap: nowrap);
+  }
+  #leftNav{ 
+    flex-grow: 1; 
+    @include media($tablet){ 
+      flex-grow: 0; 
+      width: 650px;
+    }
+  }#rightNav{ flex-shrink: 0; }
+
+  // -------------- search bar --------------
+  #searchBar{
+    position: relative;
+    flex-grow: 1;
+    img{ 
+      @include media($bigPhone){
+        position: absolute;
+        top: 3px;
+        left: 13px;
+      }
+    }input{
+      border-radius: 10px;
+      border-color: $dark;
+      color: $dark;
+      background-color: $light;
+      font-size: 16px;
+      padding-left: 35px;
+      width: 100%;
+      height: 32px;
+      @include transition(box-shadow 200ms);
+      
+      @include media($bigPhone){ display: block !important; }
+      &:focus{ box-shadow: 0px 0px 4px 2px $mainCol; }
+    }
+  }
+  // ------------ coin balance --------------
+  #coinBalance label{
+    position: relative;
+    bottom: 3px;
+  }
+  // ------------- side menu --------------
+  #sideMenu{
+    border: none;
+    #menu{
+      position:fixed;
+      top: 0;
+      z-index: 5;
+      width: 100%;
+      background-color: $light;
+
+      section{
+        font-family: $fontTitle;
+        font-size: 45px;
+        font-weight: normal;
+        text-align: center;
+        border-bottom: 4px solid $mainCol;
+        padding: 20px 0;
+        background-color: $extraCol;
+        text-shadow: 0px 0px 1px $mainCol;
+      }
+
+      #closeMenu{
+        font-size: 40px;
+        padding: 0 $pad;
+        position: absolute;
+        right: 15px;
+        cursor: pointer;
+      }
+
+      a{
+        display: block;
+        width: 100%;
+        text-align: center;
+        border-bottom: 2px solid $extraCol;
+        padding: $pad;
+        @include transition(200ms);
+        font-size: 24px;
+
+        &:last-child{ border: none; }
+        &:hover{ background-color: $extraCol; }
+      } 
+    }
+  }
+}
+// --------------- Navigation Bar End -----------------
+
+// --------------- FOOTER -------------------
+footer{
+  background-color: $extraCol;
+  padding: $pad $pad*2;
+  border-top: 4px solid $mainCol;
+  
+  @include flex(column);
+  justify-content: space-between;
+
+  h1{ 
+    margin: 0;
+    font-family: $fontTitle;
+    font-weight: 500;
+    font-size: 33px;
+    text-shadow: 0px 0px 1px $mainCol;
+  }
+  img{ 
+    width: 40px; 
+    height: 40px;
+    @include transform(translateY(10px))
+  }
+  ul{
+    list-style-type: none;
+    padding-left: 0;
+    li{ font-weight: 600; font-size: 20px; }
+  }
+  @include media($bigPhone){
+    flex-direction: row;
+  }
+}
+// --------------- FOOTER END -------------------

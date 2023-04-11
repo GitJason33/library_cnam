@@ -29,12 +29,10 @@ a {
 
 header {
   background-color: #ABB981;
-  border-bottom: 4px solid #BDFF00;
   padding: 7px;
   display: flex;
   display: -webkit-flex;
   flex-flow: row wrap;
-  align-items: center;
   justify-content: space-around;
 }
 @media only screen and (min-width: 500px) {
@@ -47,8 +45,9 @@ header #logo img {
   height: 100%;
 }
 header #bigTitle {
+  text-shadow: 0px 0px 1px #BDFF00;
   font-family: "Imprint MT Shadow", Georgia, serif;
-  font-size: 13vw;
+  font-size: 14vw;
   color: #005257;
   text-align: center;
   grid-column: span 2;
@@ -56,7 +55,6 @@ header #bigTitle {
   display: flex;
   display: -webkit-flex;
   flex-flow: row wrap;
-  align-items: center;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -76,12 +74,17 @@ header #accessibility {
   display: flex;
   display: -webkit-flex;
   flex-flow: row wrap;
-  align-items: center;
   justify-content: space-around;
+  align-items: center;
 }
 @media only screen and (min-width: 500px) {
   header #accessibility {
-    width: 50%;
+    width: 200px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  header #accessibility {
+    order: 3;
   }
 }
 header #accessibility div {
@@ -92,9 +95,172 @@ header #accessibility div img {
   width: 50px;
   height: auto;
 }
+
+#navBar {
+  position: sticky;
+  top: 0;
+  border-bottom: 4px solid #BDFF00;
+  padding: 7px 0;
+  background-color: #ABB981;
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+#navBar section div {
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-right: 2px solid #005257;
+  padding: 0 7px;
+}
+#navBar section div img {
+  width: 25px;
+  height: auto;
+}
+#navBar #homeButton span {
+  display: none;
+}
+@media only screen and (min-width: 500px) {
+  #navBar #homeButton span {
+    display: inline;
+  }
+}
+#navBar #rightNav, #navBar #leftNav {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+}
+#navBar #leftNav {
+  flex-grow: 1;
+}
 @media only screen and (min-width: 768px) {
-  header #accessibility {
-    width: 200px;
-    order: 3;
+  #navBar #leftNav {
+    flex-grow: 0;
+    width: 650px;
+  }
+}
+#navBar #rightNav {
+  flex-shrink: 0;
+}
+#navBar #searchBar {
+  position: relative;
+  flex-grow: 1;
+}
+@media only screen and (min-width: 500px) {
+  #navBar #searchBar img {
+    position: absolute;
+    top: 3px;
+    left: 13px;
+  }
+}
+#navBar #searchBar input {
+  border-radius: 10px;
+  border-color: #005257;
+  color: #005257;
+  background-color: #ECF5CE;
+  font-size: 16px;
+  padding-left: 35px;
+  width: 100%;
+  height: 32px;
+  transition: box-shadow 200ms;
+  -webkit-transition: box-shadow 200ms;
+  -o-transition: box-shadow 200ms;
+  -moz-transition: box-shadow 200ms;
+}
+@media only screen and (min-width: 500px) {
+  #navBar #searchBar input {
+    display: block !important;
+  }
+}
+#navBar #searchBar input:focus {
+  box-shadow: 0px 0px 4px 2px #BDFF00;
+}
+#navBar #coinBalance label {
+  position: relative;
+  bottom: 3px;
+}
+#navBar #sideMenu {
+  border: none;
+}
+#navBar #sideMenu #menu {
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  width: 100%;
+  background-color: #ECF5CE;
+}
+#navBar #sideMenu #menu section {
+  font-family: "Imprint MT Shadow", Georgia, serif;
+  font-size: 45px;
+  font-weight: normal;
+  text-align: center;
+  border-bottom: 4px solid #BDFF00;
+  padding: 20px 0;
+  background-color: #ABB981;
+  text-shadow: 0px 0px 1px #BDFF00;
+}
+#navBar #sideMenu #menu #closeMenu {
+  font-size: 40px;
+  padding: 0 7px;
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+}
+#navBar #sideMenu #menu a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-bottom: 2px solid #ABB981;
+  padding: 7px;
+  transition: 200ms;
+  -webkit-transition: 200ms;
+  -o-transition: 200ms;
+  -moz-transition: 200ms;
+  font-size: 24px;
+}
+#navBar #sideMenu #menu a:last-child {
+  border: none;
+}
+#navBar #sideMenu #menu a:hover {
+  background-color: #ABB981;
+}
+
+footer {
+  background-color: #ABB981;
+  padding: 7px 14px;
+  border-top: 4px solid #BDFF00;
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+footer h1 {
+  margin: 0;
+  font-family: "Imprint MT Shadow", Georgia, serif;
+  font-weight: 500;
+  font-size: 33px;
+  text-shadow: 0px 0px 1px #BDFF00;
+}
+footer img {
+  width: 40px;
+  height: 40px;
+  transform: translateY(10px);
+  -o-transform: translateY(10px);
+  -webkit-transform: translateY(10px);
+  -moz-transform: translateY(10px);
+  -ms-transform: translateY(10px);
+}
+footer ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+footer ul li {
+  font-weight: 600;
+  font-size: 20px;
+}
+@media only screen and (min-width: 500px) {
+  footer {
+    flex-direction: row;
   }
 }/*# sourceMappingURL=main.css.map */

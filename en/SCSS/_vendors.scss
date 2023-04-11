@@ -28,11 +28,10 @@
   background: -o-linear-gradient($color_scheme);
   background: -webkit-linear-gradient($color_scheme);
 }
-@mixin flex($direction: row, $wrap: wrap, $align: center) {
+@mixin flex($direction: row, $wrap: wrap) {
   display: flex;
   display: -webkit-flex;
   flex-flow: $direction $wrap;
-  align-items: $align;
 }
 @mixin grid {
   display: grid;
