@@ -1,29 +1,6 @@
 // main component's file
 const header = document.querySelector("header");
 
-// open side menu
-// document.querySelector("#sideMenu").addEventListener("click", () => {
-//   let currentWidth = window.innerWidth;
-  
-//   if(currentWidth <= 500){
-//     document.querySelector("#menu").style.height = "100%";
-//     document.querySelector("#menu").style.width = "100%";
-//   }else{
-//     document.querySelector("#menu").style.width = "300px";
-//     document.querySelector("#menu").style.height = "100%";
-//   }
-// });
-
-// // close side menu
-// document.querySelector("#closeMenu").addEventListener("click", () => {
-//   let currentWidth = window.innerWidth;
-
-//   if(currentWidth <= 500)
-//     document.querySelector("#menu").style.height = "0";
-//   else
-//     document.querySelector("#menu").style.width = "0";
-// });
-
 console.time("headTime");
 const loading = () => {
   addHeader();
@@ -41,7 +18,8 @@ function addHeader(){
     lang: "media/images/icons/translate.svg",
     english: "media/images/icons/country/uk.svg",
     french: "media/images/icons/country/france.svg",
-    arabic: "media/images/icons/country/lebanon.svg"
+    arabic: "media/images/icons/country/lebanon.svg",
+    login: "en/account/login.html"
   };
   links = checkLinks(links);
 
@@ -50,7 +28,7 @@ function addHeader(){
       <img src="${links['logo']}" alt="Logo">
     </section>
 
-    <section id="bigTitle">
+    <section id="bigTitle" class="aTitle">
       CNAM Library
     </section>
 
@@ -87,6 +65,9 @@ function addHeader(){
       </div>
     </section>
   `;
+
+  document.querySelector("#profile").addEventListener
+  ('click', () => window.open(links['login']))
 };
 
 function addNavBar(){
@@ -143,7 +124,7 @@ function addMenu(){
   
   document.querySelector("#menu").innerHTML = `
   <span id="closeMenu">x</span>
-  <section>Menu</section>
+  <section class="aTitle">Menu</section>
   <a href="${links['cart']}">
     Cart
     <img src="${links['cartIcon']}">
@@ -160,24 +141,30 @@ function addMenu(){
   // open side menu
   document.querySelector("#sideMenu").addEventListener("click", () => {
     let currentWidth = window.innerWidth;
+    let menu = document.querySelector("#menu");
     
     if(currentWidth <= 500){
-      document.querySelector("#menu").style.height = "100%";
-      document.querySelector("#menu").style.width = "100%";
+      menu.style.height = "100%";
+      menu.style.width = "100%";
     }else{
-      document.querySelector("#menu").style.width = "300px";
-      document.querySelector("#menu").style.height = "100%";
+      menu.style.width = "300px";
+      menu.style.height = "100%";
     }
+    menu.style.visibility = 'visible';
   });
 
   // close side menu
   document.querySelector("#closeMenu").addEventListener("click", () =>{
     let currentWidth = window.innerWidth;
-  
+    let menu = document.querySelector("#menu");
+
+    
     if(currentWidth <= 500)
-      document.querySelector("#menu").style.height = "0";
+    menu.style.height = "0";
     else
-      document.querySelector("#menu").style.width = "0";
+    menu.style.width = "0";
+    
+    menu.style.visibility = 'hidden';
   });
 };
 
@@ -205,7 +192,7 @@ function addFooter(){
 
   document.querySelector('footer').innerHTML = `
   <section id="leftFoot">
-    <h1>Infos:</h1>
+    <h1 class="aTitle">Infos:</h1>
     <ul id="footInfo">
       <li>Copyright 2023 &copy;</li>
       <li>Based in Lebanon</li>
@@ -220,7 +207,7 @@ function addFooter(){
   </section>
 
   <section id="rightFoot">
-    <h1>Social media:</h1>
+    <h1 class="aTitle">Social media:</h1>
     <div>
       <div class="email">
         <img src="${links['email']}">

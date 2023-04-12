@@ -1,8 +1,10 @@
 @import "config";
 
-#bigTitle, h1, h2, #menu section{
+// common style for titles
+.aTitle{
   text-shadow: 0px 0px 1px $mainCol;
   font-family: $fontTitle;
+  font-weight: 500;
 }
 // ---------------- HEADER --------------------------
 header{
@@ -191,6 +193,7 @@ header{
 
 // --------------- side Menu ----------------
 #menu{
+  visibility: hidden;
   position: fixed;
   top: 0;
   background-color: $extraCol;
@@ -212,7 +215,6 @@ header{
   
   section{
     font-size: 45px;
-    font-weight: normal;
     text-align: center;
     border-bottom: 4px solid $mainCol;
     padding: 20px 0;
@@ -255,7 +257,6 @@ footer{
   //
   h1{ 
     margin: 0;
-    font-weight: 500;
     font-size: 33px;
   }
   img{ 
