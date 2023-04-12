@@ -12,88 +12,12 @@
   <!-- import JavaScript -->
   <script src="./en/js/main.js" defer></script>
 </head>
-<body>
-  <header id="home" class="level-0">
-    <section id="logo">
-      <img src="./media/images/logo.svg" alt="Logo">
-    </section>
+<body onload="loading()">
+  <header id="home" class="level-0"></header>
 
-    <section id="bigTitle">
-      CNAM Library
-    </section>
+  <nav id="navBar"></nav>
 
-    <section id="accessibility">
-      <div id="theme" title="dark mode">
-        <img src="./media/images/icons/moon.svg" alt="theme" />
-      </div>
-
-      <div id="profile" title="profile">
-        <img src="./media/images/icons/profile-circle.svg" alt="account" />
-        <br/>
-        <strong>Login</strong>
-      </div>
-
-      <div id="language" title="choose your language">
-        <img src="./media/images/icons/translate.svg" alt="language" />
-
-        <aside id="langs">
-          <div class="english">
-            <img src="./media/images/icons/country/uk.svg" >
-            <span>English</span>
-          </div>
-
-          <div class="french">
-            <img src="./media/images/icons/country/france.svg">
-            <span>Français</span>
-          </div>
-
-          <div class="arabic">
-            <img src="./media/images/icons/country/lebanon.svg">
-            <span>العربية</span>
-          </div>
-        </aside>
-      </div>
-    </section>
-  </header>
-
-  <nav id="navBar">
-    <section id="leftNav">
-      <div id="homeButton" onclick="window.open(`index.html`, `_self`)">
-        <span>HOME</span>
-        <img src="./media/images/icons/home.svg" alt="home">
-      </div>
-      <div id="searchBar" title="search">
-        <img src="./media/images/icons/search.svg">
-        <input type="text" placeholder="Search..." formaction="search.php" name="search" style="display: none;">
-      </div>
-    </section>
-
-    <section id="rightNav">
-      <div id="coinBalance" title="your coins">
-        <label>0</label>
-        <img src="./media/images/icons/coin.svg">
-      </div>
-  
-      <div id="sideMenu" title="menu">
-        <img src="./media/images/icons/menu.svg"/>
-        
-        <aside id="menu" style="display: none">
-          <span id="closeMenu">x</span>
-          <section>Menu</section>
-          <a href="">
-            Cart
-            <img src="./media/images/icons/shopping-card.svg">
-          </a>
-          <a href="">Trending</a>
-          <a href="">Categories</a>
-          <a href="">Favorites</a>
-          <a href="">About us</a>
-          <a href="">Contribute</a>
-          <a href="">Contact us</a>
-        </aside>
-      </div>
-    </section>
-  </nav>
+  <aside id="menu"></aside>
 
   <main>
     <h1>some text to test the page...</h1>
@@ -111,46 +35,6 @@
     </p>
   </main>
 
-  <footer>
-    <section id="leftFoot">
-      <h1>Infos:</h1>
-      <ul id="footInfo">
-        <li>Copyright 2023</li>
-        <li>Founded in Lebanon</li>
-        <li>University of CNAM - Lebanon</li>
-        <li>
-          <img src="./media/images/icons/payment/apple-pay.svg">
-          <img src="./media/images/icons/payment/mastercard.svg">
-          <img src="./media/images/icons/payment/visa-classic.svg">
-          <img src="./media/images/icons/payment/western-union.svg">
-        </li>
-      </ul>
-    </section>
-
-    <section id="rightFoot">
-      <h1>Social media:</h1>
-      <div>
-        <div class="email">
-          <img src="./media/images/icons/social/email.svg">
-          <a href="mailto:info@isae.edu.lb">info@isae.edu.lb</a>
-        </div>
-
-        <div class="instagram">
-          <img src="./media/images/icons/social/instagram.svg">
-          <a href="http://instagram.com/_u/CNAM.Liban/">CNAM.Liban</a>
-        </div>
-
-        <div class="facebook">
-          <img src="./media/images/icons/social/facebook.svg">
-          <a href="https://www.facebook.com/CNAM Liban/">CNAM Liban</a>
-        </div>
-
-        <div class="twitter">
-          <img src="./media/images/icons/social/twitter.svg">
-          <a href="https://twitter.com/cnamLiban?s=20">CNAM Liban</a>
-        </div>
-      </div>
-    </section>
-  </footer>
+  <footer></footer>
 </body>
 </html>
