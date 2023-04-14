@@ -128,7 +128,8 @@ function addSearchLayer(){
     "Geography",
     "Action",
     "Thriller",
-    "Comedy"
+    "Comedy",
+    "Romance"
   ];
   // add options depending on array
   for(let i in options)
