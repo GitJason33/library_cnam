@@ -6,6 +6,7 @@ const loading = () => {
   addHeader();
   addNavBar();
   addMenu();
+  addSearchLayer();
   addFooter();
 }
 console.timeEnd("headTime");
@@ -89,8 +90,8 @@ function addNavBar(){
     </div>
 
     <div id="searchBar" title="search">
+      <span>SEARCH</span>
       <img src="${links['search']}">
-      <input type="text" placeholder="Search..." formaction="search.php" name="search" style="display: none;">
     </div>
   </section>
 
@@ -107,6 +108,61 @@ function addNavBar(){
   `;
 };
 
+function addSearchLayer(){
+  let searchLayer = document.querySelector("#searchLayer");
+
+  // ADD form infos here
+  searchLayer.method = "get";
+  searchLayer.action = "#";
+
+  let links = checkLinks({
+    search: "media/images/icons/search.svg"
+  });
+  let selection = "";
+  let options = [
+    "All",
+    "Science-Fiction",
+    "Self-Imporvement",
+    "Sports",
+    "Biography",
+    "Geography",
+    "Action",
+    "Thriller",
+    "Comedy"
+  ];
+  // add options depending on array
+  for(let i in options)
+   selection += `<option value="${options[i]}">${options[i]}</option>\n`;
+
+  searchLayer.innerHTML = `
+  <div>
+    <h1 class="aTitle">Search a book</h1>
+    <span class="closeSearch">x</span>
+  </div>
+  <div class="searchPart">
+    <label>
+      <img src="${links['search']}"/>
+      <input type="text" placeholder="Search..." name="search" required>
+    </label>
+    <button type="submit">Enter</button>
+  </div>
+  <select name="category-search" id="category-search">
+    ${selection}
+  </select>
+  `;
+  
+  // add respective events
+  document.querySelector("#searchBar").addEventListener("click", () => {
+    searchLayer.style.visibility = 'visible';
+    searchLayer.style.opacity = "100%";
+  });
+
+  document.querySelector(".closeSearch").addEventListener("click", () => {
+    searchLayer.style.visibility = 'hidden';
+    searchLayer.style.opacity = "0";
+  });
+}
+
 function addMenu(){
   let links = {
     cartIcon: "media/images/icons/shopping-card.svg",
@@ -116,9 +172,9 @@ function addMenu(){
     trending: "",
     categories: "",
     favorites: "",
-    aboutUs: "",
+    aboutUs: "en/about-us.html",
     contribute: "",
-    contactUs: ""
+    contactUs: "en/contact-us.html"
   };
   links = checkLinks(links);
   

@@ -1,0 +1,49 @@
+main {
+  background-image: url("../../media/images/contact-us-bg.jpg");
+}
+main input, main button, main textarea {
+  padding: 7px;
+  margin: 10px;
+  font-size: 15px;
+  background-color: #ECF5CE;
+  color: #005257;
+  border: 2px inset #005257;
+  border-radius: 7px;
+}
+main input:not(input[type=button]), main textarea {
+  transition: box-shadow 200ms;
+  -webkit-transition: box-shadow 200ms;
+  -o-transition: box-shadow 200ms;
+  -moz-transition: box-shadow 200ms;
+}
+main input:not(input[type=button]):focus, main textarea:focus {
+  box-shadow: 0px 0px 4px 2px #BDFF00;
+}
+main textarea {
+  width: 550px;
+  max-width: 550px;
+  height: 350px;
+}
+@media only screen and (max-width: 595px) {
+  main textarea {
+    width: 450px;
+    height: 300px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  main textarea {
+    width: 300px;
+    height: 250px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  main textarea {
+    width: 250px;
+  }
+}
+main input[type=button], main button {
+  cursor: pointer;
+}
+main #message {
+  width: 550px;
+}/*# sourceMappingURL=for-contact.css.map */

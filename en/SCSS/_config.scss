@@ -17,3 +17,9 @@ a{
   text-decoration: none;
   color: unset;
 }
+
+@mixin inputImage($top, $left){
+  position: absolute;
+  top: $top;    // 3
+  left: $left;  // 13
+}

@@ -175,11 +175,13 @@ header #accessibility #language #langs div:hover {
   width: 25px;
   height: auto;
 }
-#navBar #homeButton span {
+#navBar #leftNav span {
   display: none;
+  position: relative;
+  bottom: 2px;
 }
 @media only screen and (min-width: 500px) {
-  #navBar #homeButton span {
+  #navBar #leftNav span {
     display: inline;
   }
 }
@@ -188,33 +190,82 @@ header #accessibility #language #langs div:hover {
   display: -webkit-flex;
   flex-flow: row nowrap;
 }
-@media only screen and (min-width: 500px) {
-  #navBar #leftNav {
-    flex-grow: 1;
-  }
-}
-@media only screen and (min-width: 768px) {
-  #navBar #leftNav {
-    flex-grow: 0;
-    width: 650px;
-  }
-}
-#navBar #rightNav {
-  flex-shrink: 0;
-}
-#navBar #searchBar {
+#navBar #coinBalance label {
   position: relative;
+  bottom: 3px;
+}
+#navBar #sideMenu {
+  border: none;
+}
+
+#searchLayer {
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  z-index: 11;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0;
+  transition: opacity 300ms;
+  -webkit-transition: opacity 300ms;
+  -o-transition: opacity 300ms;
+  -moz-transition: opacity 300ms;
+}
+#searchLayer h1 {
+  background-color: #ABB981;
+  font-size: 40px;
+  text-align: center;
+  margin: 0;
+  padding: 30px 0;
+  border-bottom: 4px solid #BDFF00;
+}
+#searchLayer span {
+  position: absolute;
+  font-size: 40px;
+  z-index: 12;
+  top: 0;
+  right: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#searchLayer .searchPart {
+  position: relative;
+  padding-top: 10px;
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+#searchLayer .searchPart button[type=submit] {
+  all: unset;
+  border: 2px inset #005257;
+  border-left: none;
+  background-color: #ECF5CE;
+  padding: 0 7px;
+  height: 36px;
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  cursor: pointer;
+}
+#searchLayer img {
+  width: 25px;
+  height: auto;
+  position: absolute;
+  top: 17px;
+  left: 7px;
+  cursor: pointer;
+}
+#searchLayer label {
+  height: -moz-fit-content;
+  height: fit-content;
   flex-grow: 1;
 }
-@media only screen and (min-width: 500px) {
-  #navBar #searchBar img {
-    position: absolute;
-    top: 3px;
-    left: 13px;
-  }
-}
-#navBar #searchBar input {
-  border-radius: 10px;
+#searchLayer input {
+  border-radius: 7px;
   border-color: #005257;
   color: #005257;
   background-color: #ECF5CE;
@@ -226,21 +277,37 @@ header #accessibility #language #langs div:hover {
   -webkit-transition: box-shadow 200ms;
   -o-transition: box-shadow 200ms;
   -moz-transition: box-shadow 200ms;
+  font-size: 14px;
+  display: block;
+  height: 40px;
+  border-right: none;
+  font-size: 16px;
 }
-@media only screen and (min-width: 500px) {
-  #navBar #searchBar input {
-    display: block !important;
+@media only screen and (min-width: 768px) {
+  #searchLayer input {
+    font-size: 20px;
   }
 }
-#navBar #searchBar input:focus {
+@media only screen and (min-width: 992px) {
+  #searchLayer input {
+    font-size: 24px;
+  }
+}
+#searchLayer input:focus {
   box-shadow: 0px 0px 4px 2px #BDFF00;
 }
-#navBar #coinBalance label {
-  position: relative;
-  bottom: 3px;
-}
-#navBar #sideMenu {
-  border: none;
+#searchLayer select {
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  margin: 5px auto 0;
+  height: 40px;
+  border: 2px inset #005257;
+  border-radius: 7px;
+  color: #005257;
+  background-color: #ECF5CE;
+  padding: 3px;
+  cursor: pointer;
 }
 
 #menu {

@@ -6,6 +6,7 @@
   font-family: $fontTitle;
   font-weight: 500;
 }
+
 // ---------------- HEADER --------------------------
 header{
   background-color: $extraCol;
@@ -140,47 +141,16 @@ header{
     border-right: 2px solid $dark;
     padding: 0 $pad;
   }
-  //-------------- home ---------------
-  #homeButton span{ 
+  //-------------- home & search button ---------------
+  #leftNav span{ 
     display: none;
     @include media($bigPhone){ display: inline; }
+    position: relative; 
+    bottom: 2px;
   }
   // ------------- side flexes --------------
   #rightNav, #leftNav {
     @include flex($wrap: nowrap);
-  }
-  #leftNav{ 
-    @include media($bigPhone){ flex-grow: 1; }
-    @include media($tablet){ 
-      flex-grow: 0; 
-      width: 650px;
-    }
-  }#rightNav{ flex-shrink: 0; }
-
-  // -------------- search bar --------------
-  #searchBar{
-    position: relative;
-    flex-grow: 1;
-    img{ 
-      @include media($bigPhone){
-        position: absolute;
-        top: 3px;
-        left: 13px;
-      }
-    }input{
-      border-radius: 10px;
-      border-color: $dark;
-      color: $dark;
-      background-color: $light;
-      font-size: 16px;
-      padding-left: 35px;
-      width: 100%;
-      height: 32px;
-      @include transition(box-shadow 200ms);
-      
-      @include media($bigPhone){ display: block !important; }
-      &:focus{ box-shadow: 0px 0px 4px 2px $mainCol; }
-    }
   }
   // ------------ coin balance --------------
   #coinBalance label{
@@ -190,6 +160,113 @@ header{
   #sideMenu{ border: none; }
 }
 // --------------- Navigation Bar End -----------------
+
+// ------------- search Layer ---------------
+#searchLayer{
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  z-index: 11;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  
+  // fade in effect
+  opacity: 0;
+  @include transition(opacity 300ms);
+  
+  h1{
+    background-color: $extraCol;
+    font-size: 40px;
+    text-align: center;
+    margin: 0;
+    padding: 30px 0;
+    border-bottom: 4px solid $mainCol;
+  }
+  span{
+    position: absolute;
+    font-size: 40px;
+    z-index: 12;
+    top: 0;
+    right: 10px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .searchPart{
+    position: relative;
+    padding-top: 10px;
+
+    @include flex;
+    justify-content: space-between;
+    @include media($bigPhone){
+    }
+    button[type="submit"]{
+      all: unset;
+      border: 2px inset $dark; 
+      border-left: none;
+      background-color: $light;
+      padding: 0 $pad;
+      height: 36px;
+      font-weight: bold;
+      
+      position: absolute;
+      right: 0;
+      border-top-right-radius: 7px;
+      border-bottom-right-radius: 7px;
+      cursor: pointer;
+    }
+  }
+
+  img{
+    width: 25px; 
+    height: auto; 
+    @include inputImage(17px, 7px); 
+    cursor: pointer;
+  }
+
+  label{ 
+    height: fit-content;
+    flex-grow: 1;
+  }
+
+  input{ 
+    border-radius: 7px;
+    border-color: $dark;
+    color: $dark;
+    background-color: $light;
+    font-size: 16px;
+    padding-left: 35px;
+    width: 100%;
+    height: 32px;
+    @include transition(box-shadow 200ms);
+    
+    font-size: 14px;
+    display: block;
+    height: 40px;
+    
+    border-right: none;
+    font-size: 16px;
+
+    @include media($tablet){ font-size: 20px; }
+    @include media($laptop){ font-size: 24px; }
+    &:focus{ box-shadow: 0px 0px 4px 2px $mainCol; }
+  }
+  select{
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    margin: 5px auto 0;
+    height: 40px;
+    border: 2px inset $dark;
+    border-radius: 7px;
+    color: $dark;
+    background-color: $light;
+    padding: 3px;
+    cursor: pointer;
+  }
+} 
+// ------------- search Layer End ---------------
 
 // --------------- side Menu ----------------
 #menu{
