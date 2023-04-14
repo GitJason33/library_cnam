@@ -276,7 +276,7 @@ header{
   background-color: $extraCol;
   @include media("max-width: 500px"){ left: 0; }
   height: 0; // max 406px
-  overflow: hidden;
+  overflow-y: auto;
   z-index: 11;
   width: 100%;
   @include transition(500ms);

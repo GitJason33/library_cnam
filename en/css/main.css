@@ -316,7 +316,7 @@ header #accessibility #language #langs div:hover {
   top: 0;
   background-color: #ABB981;
   height: 0;
-  overflow: hidden;
+  overflow-y: auto;
   z-index: 11;
   width: 100%;
   transition: 500ms;
