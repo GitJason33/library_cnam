@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+::-moz-selection {
+  background: #005257;
+  color: #BDFF00;
+}
+
+::selection {
+  background: #005257;
+  color: #BDFF00;
+}
+
+body {
+  overflow-x: hidden;
+  color: #005257;
+  background-color: #ECF5CE;
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+body {
+  background-color: #005257;
+}
+
+form {
+  font-family: "Nunito Sans", sans-serif;
+}
+form input, form button {
+  border: none;
+  outline: none;
+  background: none;
+}
+form .cont {
+  position: relative;
+  width: 100%;
+  height: 50%px;
+  background: #ABB981;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+form .form {
+  position: relative;
+  width: 640px;
+  height: 100%;
+  padding: 50px 30px;
+  transition: transform 1.2s ease-in-out;
+  -webkit-transition: transform 1.2s ease-in-out;
+  -o-transition: transform 1.2s ease-in-out;
+  -moz-transition: transform 1.2s ease-in-out;
+}
+form h2 {
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+}
+form input {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  font-size: 16px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(230, 213, 213, 0.4);
+}
+form button {
+  display: block;
+  margin: 0 auto;
+  width: 260px;
+  height: 36px;
+  border-radius: 30px;
+  color: #ECF5CE;
+  font-size: 15px;
+  cursor: pointer;
+}
+form .submit {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: #005257;
+  /* #b224ef */
+}
+form .submit:hover {
+  background: #BDFF00;
+}
+form .forgot-pass {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #005257;
+  cursor: pointer;
+}
+form .forgot-pass:hover {
+  -webkit-text-decoration: underline #005257;
+          text-decoration: underline #005257;
+}/*# sourceMappingURL=account.css.map */
