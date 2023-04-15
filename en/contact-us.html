@@ -23,17 +23,17 @@
 
   <main>
     <form id="form" method="POST">
-      <input id="name" type="text" name="name" placeholder="Enter your name" required> <br/>
+      <input id="name" type="text" name="name" placeholder="username here" required> <br/>
 
-      <input id="email" type="email" name="email" placeholder="Enter your email address" required> <br/>
+      <input id="email" type="email" name="email" placeholder="email@example.com" required> <br/>
 
       <textarea id="text-message" placeholder="Enter your message here" required></textarea> <br/>
 
       <input id="message" type="text" name="message" style="display: none;">
 
-      <input type="button" onclick="copyTextAndSubmit()" value="Next">
+      <button type="button" onclick="copyTextAndSubmit()">Next</button>
       
-      <button id="submitEmail" type="submit" style="visibility: hidden;">Send Email</button>
+      <button type="submit" id="submitEmail" style="visibility: hidden;">Send Email</button>
     </form>
   </main>
 

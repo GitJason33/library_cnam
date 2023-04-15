@@ -34,10 +34,6 @@ function addHeader(){
     </section>
 
     <section id="accessibility">
-      <div id="theme" title="dark mode">
-        <img src="${links['theme']}" alt="theme" />
-      </div>
-
       <div id="profile" title="profile">
         <img src="${links['profile']}" alt="account" />
         <br/>

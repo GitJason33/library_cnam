@@ -1,39 +1,39 @@
 @import "vars", "vendors";
 
 main{
-  background-image: url("../../media/images/contact-us-bg.jpg");
+  background-image: url(../../media/images/bg/bg-animated-shapes.svg);
 
   input, button, textarea{
-    padding: $pad;
-    margin: 10px;
-    font-size: 15px;
     background-color: $light;
     color: $dark;
-    border: 2px inset $dark;
-    border-radius: 7px;
+    padding: $pad;
+    margin-bottom: 10px;
+    border: bord();
+    border-radius: $radius;
+
+    // font-size update with different width
+    font-size: 1rem; // default
+    @include media($small){ font-size: 12px; }
+    @include media($bigPhone){ font-size: 18px; }
+    @include media($laptop){ font-size: 20px; }
   }
-  input:not(input[type="button"]), textarea{ 
-    @include transition(box-shadow 200ms);
-    &:focus{ box-shadow: 0px 0px 4px 2px $mainCol; }
+  input{
+    width: 100%;
+    @include media($tablet){ width: 600px; }
   }
   textarea{
-    width: 550px;
-    max-width: 550px;
-    height: 350px;
-    @include media("max-width: 595px"){
-      width: 450px;
-      height: 300px;
-    }
-    @include media("max-width: 500px"){
-      width: 300px;
-      height: 250px;
-    }
-    @include media("max-width: 350px"){
-      width: 250px;
-    }
+    @include dimensions(100%, 400px);
+    font-family: $fontText;
+
+    @include media($tablet){ width: 90%; }
+    @include media($laptop){ width: 80%; }
+    @include media($desktop){ width: 70%; }
   }
-  input[type="button"], button{
-    cursor: pointer;
+  button{ cursor: pointer; }
+
+  input, textarea{ 
+    @include transition(box-shadow 200ms);
+    &:focus{ box-shadow: 0px 0px 4px 2px $mainCol; }
   }
   #message{ width: 550px; }
 }

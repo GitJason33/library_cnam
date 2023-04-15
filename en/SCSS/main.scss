@@ -1,10 +1,18 @@
 @import "config";
 
+// common styling of main content container
+main{
+  color: $light;
+  padding: 30px $pad;
+  background-image: url(../../media/images/bg/background.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 // common style for titles
 .aTitle{
   text-shadow: 0px 0px 1px $mainCol;
-  font-family: $fontTitle;
-  font-weight: 500;
+  font: { family: $fontTitle; weight: 500; }
+  text-align: center;
 }
 
 // ---------------- HEADER --------------------------
@@ -12,104 +20,98 @@ header{
   background-color: $extraCol;
   padding: $pad;
   @include flex;
-  justify-content: space-around;
-
-  @include media($bigPhone){
-    justify-content: space-between;
-  }
+  justify-content: space-between;
 
   // ---------------- logo ------------------
-  #logo img {
-    width: 100px;
-    height: 100%;
+  #logo img{ 
+    @include dimensions(80px); 
+    @include media($small){ @include dimensions(60px); }
+    @include media($bigPhone){ @include dimensions(100px); }
   }
 
   // ---------------- header's title ------------------
   #bigTitle{
     font-size: 13vw;
-    color: $dark;
-    text-align: center;
-    grid-column: span 2;
-    order: 3;
+    order: 3; // flex-item order
     @include perfect_center;
     width: 100%;
 
-    @include media($bigPhone){
-      font-size: 60px;
-    }
-    @include media($tablet){
-      width: auto;
-    }
+    @include media($bigPhone){ font-size: 70px; }
+    @include media($tablet){ width: auto; }
+    @include media($laptop){ font-size: 90px; }
   }
   
   // ------------- accessibility buttons --------------
   #accessibility{
-    width: 100%;
+    width: 150px;
+    @include media($tablet){ order: 3; }
+    @include media($small){ @include dimensions(100px); }
 
-    @include media($bigPhone){
-      width: 200px;
-    }
-    @include media($tablet){
-      order: 3;
-    }
     div {
-      img{
-      width: 50px;
-      height: auto;
+      img{ 
+        @include dimensions(50px); 
+        @include media($small){ @include dimensions(35px); }
       }
       cursor: pointer;
       text-align: center;
     }
-    //
     @include flex;
     justify-content: space-around;
     align-items: center;
-
+    
     // ---------------- language menu ----------------
     #language{
       position: relative;
+      
+      #langs{
+        background: $light;
+        position: absolute;
+        right: 0;
+        z-index: 10;
+        border-radius: 2px;
+        width: 160px;
+        border: bord(1px);
+        
+        // fade in effect
+        visibility: hidden;
+        opacity: 0;
+        @include transition(opacity 200ms);
+        
+        // arrow pointing towards the icon
+        &::before{
+          content: "";
+          border: {
+            left: bord(7px, transparent); 
+            right: bord(7px, transparent); 
+            top: bord(7px, transparent); 
+            bottom: bord(7px, $light);
+          }
+          position: absolute;
+          top: -14px;
+          right: 7px;
+        }
+      }
+      // make the language menu visible
       &:hover #langs{ 
         visibility: visible; 
         opacity: 1;
       }
-      #langs{
-        visibility: hidden;
-        opacity: 0;
-        position: absolute;
-        background: $light;
-        z-index: 10;
-        right: 0;
-        border-radius: 1px;
-        width: 160px;
-        border: 1px solid $dark; 
-        @include transition(opacity 200ms);
-
-        // arrow pointing towards the icon
-        &::before{
-          content: "";
-          position: absolute;
-          top: -14px;
-          right: 7px;
-          border: {
-            left: 7px solid transparent; 
-            right: 7px solid transparent; 
-            top: 7px solid transparent; 
-            bottom: 7px solid $light;
-          }
-        }
-      }#langs div{ 
+      
+      // style language menu
+      #langs div{ 
         padding: $pad*1.6 $pad*2.5; 
         font-weight: bold;
         text-align: left;
+
         img{ 
-          width: 25px; height: 25px; 
+          @include dimensions(25px, 25px);
           position: relative;
           top: 5.5px;
-        }span{ font-size: 16px; }
+        }
+        span{ font-size: 16px; }
 
-        &:not(&:last-child){ 
-          border-bottom: 1px solid $dark; 
-        }&:hover{ background-color: $extraCol; }
+        &:hover{ background-color: $extraCol; }
+        &:not(&:last-child){ border-bottom: bord(1px); }
       }
     }
   }
@@ -121,7 +123,7 @@ header{
   position: sticky;
   top: 0;
   z-index: 5;
-  border-bottom: 4px solid $mainCol;
+  border-bottom: bord(4px, $mainCol);
   padding: $pad 0;
   background-color: $extraCol;
 
@@ -129,17 +131,12 @@ header{
   justify-content: space-between;
 
   section div {
-    font: {
-      size: 20px;
-      weight: bold;
-    }
-    img{
-      width: 25px;
-      height: auto;
-    }
-    cursor: pointer;
-    border-right: 2px solid $dark;
+    font: { size:20px; weight:bold; }
+    border-right: bord();
     padding: 0 $pad;
+    cursor: pointer;
+
+    img{ @include dimensions(25px); }
   }
   //-------------- home & search button ---------------
   #leftNav span{ 
@@ -163,106 +160,99 @@ header{
 
 // ------------- search Layer ---------------
 #searchLayer{
-  visibility: hidden;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 82, 87, 0.7);
   position: fixed;
-  z-index: 11;
-  width: 100%;
-  height: 100%;
   top: 0;
+  z-index: 11;
+  @include dimensions(100%, 100%);
   
   // fade in effect
+  visibility: hidden;
   opacity: 0;
   @include transition(opacity 300ms);
   
   h1{
     background-color: $extraCol;
     font-size: 40px;
-    text-align: center;
     margin: 0;
     padding: 30px 0;
-    border-bottom: 4px solid $mainCol;
+    border-bottom: bord(4px, $mainCol);
   }
   span{
     position: absolute;
-    font-size: 40px;
     z-index: 12;
     top: 0;
     right: 10px;
-    font-weight: bold;
+    font: { size:40px; weight: bold; }
     cursor: pointer;
   }
-
   .searchPart{
     position: relative;
     padding-top: 10px;
-
     @include flex;
     justify-content: space-between;
-    @include media($bigPhone){
-    }
+
     button[type="submit"]{
       all: unset;
-      border: 2px inset $dark; 
-      border-left: none;
       background-color: $light;
       padding: 0 $pad;
       height: 36px;
-      font-weight: bold;
-      
+      font: { size:12px; weight:bold; }
       position: absolute;
       right: 0;
-      border-top-right-radius: 7px;
-      border-bottom-right-radius: 7px;
       cursor: pointer;
+
+      border: bord(); 
+      border-left: none;
+      border: {
+        top-right-radius: $radius;
+        bottom-right-radius: $radius;
+      }
+      @include media($bigPhone){ font-size: 16px; }
+      @include media($tablet){ font-size: 20px; }
+      @include media($laptop){ font-size: 24px; }
     }
   }
 
   img{
-    width: 25px; 
-    height: auto; 
+    @include dimensions(25px);
     @include inputImage(17px, 7px); 
     cursor: pointer;
   }
-
   label{ 
     height: fit-content;
     flex-grow: 1;
   }
 
   input{ 
-    border-radius: 7px;
-    border-color: $dark;
-    color: $dark;
-    background-color: $light;
-    font-size: 16px;
-    padding-left: 35px;
-    width: 100%;
-    height: 32px;
-    @include transition(box-shadow 200ms);
-    
-    font-size: 14px;
     display: block;
-    height: 40px;
-    
-    border-right: none;
-    font-size: 16px;
+    background-color: $light;
+    color: $dark;
+    font-size: 12px;
+    padding-left: 35px;
+    @include dimensions(100%, 40px);
 
+    border-radius: $radius;
+    border-color: $dark;
+    border-right: none;
+    @include transition(box-shadow 200ms);
+
+    @include media($bigPhone){ font-size: 16px; }
     @include media($tablet){ font-size: 20px; }
     @include media($laptop){ font-size: 24px; }
     &:focus{ box-shadow: 0px 0px 4px 2px $mainCol; }
   }
   select{
-    font-size: 20px;
-    font-weight: bold;
     display: block;
-    margin: 5px auto 0;
-    height: 40px;
-    border: 2px inset $dark;
-    border-radius: 7px;
-    color: $dark;
     background-color: $light;
+    color: $dark;
+    margin: 5px auto 0;
     padding: 3px;
+    font: { size:20px; weight:bold; }
+
+    height: 40px;
+    border: bord();
+    border-radius: $radius;
     cursor: pointer;
   }
 } 
@@ -270,50 +260,48 @@ header{
 
 // --------------- side Menu ----------------
 #menu{
-  visibility: hidden;
+  background-color: $extraCol;
   position: fixed;
   top: 0;
-  background-color: $extraCol;
-  @include media("max-width: 500px"){ left: 0; }
-  height: 0; // max 406px
-  overflow-y: auto;
   z-index: 11;
-  width: 100%;
-  @include transition(500ms);
-
+  @include media("max-width: 500px"){ left: 0; }
+  
+  @include dimensions(100%, 0); // max H = 406px
+  visibility: hidden;
+  overflow-y: auto;
+  
   // when above 500px of width, let it come from right
   @include media($bigPhone){
-    height: 100%;
+    @include dimensions(0, 100%); // max W = 300px
     right: 0;
-    width: 0; // max 300px
   }
+  @include transition(500ms);
 
-  img{ width: 25px; height: 25px; }
+  img{ @include dimensions(25px, 25px); }
   
   section{
-    font-size: 45px;
-    text-align: center;
-    border-bottom: 4px solid $mainCol;
-    padding: 20px 0;
     background-color: $extraCol;
+    font-size: 45px;
+    padding: 20px 0;
+    border-bottom: bord(4px, $mainCol);
   }
 
   #closeMenu{
-    font-size: 40px;
-    padding: 0 $pad;
     position: absolute;
     right: 15px;
+    padding: 0 $pad;
+    font-size: 40px;
     cursor: pointer;
   }
 
   a{
     display: block;
-    width: 100%;
-    text-align: center;
     background-color: $light;
-    border-bottom: 2px solid $extraCol;
-    padding: $pad;
+    text-align: center;
     font-size: 24px;
+    width: 100%;
+    padding: $pad;
+    border-bottom: bord($c: $extraCol);
 
     &:last-child{ border: none; }
     &:hover{ background-color: $extraCol; }
@@ -323,7 +311,7 @@ header{
 footer{
   background-color: $extraCol;
   padding: $pad $pad*2;
-  border-top: 4px solid $mainCol;
+  border-top: bord(4px, $mainCol);
   
   @include flex(column);
   justify-content: space-between;
@@ -331,10 +319,11 @@ footer{
   @include media($bigPhone){
     flex-direction: row;
   }
-  //
+  // title
   h1{ 
     margin: 0;
     font-size: 33px;
+    text-align: left !important;
   }
   img{ 
     width: 40px; 
@@ -344,13 +333,11 @@ footer{
   ul{
     list-style-type: none;
     padding-left: 0;
-    li{ font-weight: 600; font-size: 20px; }
+    li{ font: { weight:600; size:20px; } }
   }
-  //
+  // 
   #rightFoot{
-    a:hover{
-      text-decoration: underline $dark;
-    }
+    a:hover{ text-decoration: underline $dark; }
   }
 }
 // --------------- FOOTER END -------------------
