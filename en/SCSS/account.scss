@@ -1,6 +1,9 @@
 @import "config";
 
-main{ color: $dark; }
+main{ 
+  color: $dark; 
+  background-image: url(../../media/images/bg/bg-animated-shapes.svg);
+}
 
 main #login-form{
   font-family: 'Nunito Sans', sans-serif;
