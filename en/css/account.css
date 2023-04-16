@@ -60,7 +60,7 @@ main #login-form input, main #login-form button {
   background: none;
 }
 main #login-form .form {
-  background-color: #ECF5CE;
+  background-color: #ABB981;
   padding: 20px 7px;
   width: 100%;
   position: relative;
@@ -105,7 +105,8 @@ main #login-form .take-info label:last-child {
   margin-bottom: 7px;
 }
 main #login-form .take-info label span {
-  background-color: #ECF5CE;
+  background-color: #ABB981;
+  font-weight: bold;
   padding: 0 3.5px;
   position: absolute;
   bottom: 7px;
@@ -117,9 +118,9 @@ main #login-form .take-info label span {
 }
 main #login-form .take-info label input {
   display: block;
+  background-color: transparent;
   position: relative;
   z-index: 1;
-  background-color: transparent;
   border: 1px inset #005257;
   border-radius: 3px;
   width: 100%;
