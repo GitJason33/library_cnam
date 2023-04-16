@@ -315,10 +315,10 @@ header #accessibility #language #langs div:not(header #accessibility #language #
   border-radius: 7px;
   border-color: #005257;
   border-right: none;
-  transition: box-shadow 200ms;
-  -webkit-transition: box-shadow 200ms;
-  -o-transition: box-shadow 200ms;
-  -moz-transition: box-shadow 200ms;
+  transition: box-shadow 300ms;
+  -webkit-transition: box-shadow 300ms;
+  -o-transition: box-shadow 300ms;
+  -moz-transition: box-shadow 300ms;
 }
 @media only screen and (min-width: 500px) {
   #searchLayer input {

@@ -235,7 +235,7 @@ header{
     border-radius: $radius;
     border-color: $dark;
     border-right: none;
-    @include transition(box-shadow 200ms);
+    @include transition(box-shadow 300ms);
 
     @include media($bigPhone){ font-size: 16px; }
     @include media($tablet){ font-size: 20px; }
