@@ -3,6 +3,7 @@
 main{ 
   padding: $pad 0; 
   background-image: url(../../media/images/bg/rect-light-bg.svg);
+  color: $light;
 
   @include media($tablet){
     @include flex($wrap: nowrap);
@@ -43,6 +44,7 @@ main .writing{
 } 
 // illustrations
 main .illustrations{
+  color: $dark;
   @include flex;
   justify-content: space-around;
   align-content: space-around;
