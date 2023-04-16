@@ -1,0 +1,33 @@
+// colors
+$mainCol: #BDFF00;
+$extraCol: #ABB981;
+$light: #ECF5CE;
+$dark: #005257;
+
+// fonts
+$fontText: Helvetica, Arial, sans-serif; // iceberg
+$fontTitle: "Imprint MT Shadow", Georgia, serif;
+
+// spacings
+$pad: 7px;
+
+// border
+$radius: 7px;
+@function bord($width: 2px, $c: $dark){
+  @return $width inset $c;
+}
+
+// medias
+$small: "max-width: 300px";
+$phone: "min-width: 301px";
+$bigPhone: "min-width: 500px";
+$tablet: "min-width: 768px";
+$laptop: "min-width: 992px";
+$desktop: "min-width: 1200px";
+$huge: "min-width: 1800px";
+
+// optimizers of code
+@mixin dimensions($w: auto, $h: auto){
+  width: $w;
+  height: $h;
+}
