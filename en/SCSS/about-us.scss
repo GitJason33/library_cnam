@@ -2,7 +2,7 @@
 
 main{ 
   padding: $pad 0; 
-  background-image: url(../../media/images/contact-us-bg.jpg);
+  background-image: url(../../media/images/bg/rect-light-bg.svg);
 
   @include media($tablet){
     @include flex($wrap: nowrap);
