@@ -118,7 +118,7 @@ function addSearchLayer(){
   let options = [
     "All",
     "Science-Fiction",
-    "Self-Imporvement",
+    "Self-Improvement",
     "Romance",
     "Biography",
     "Geography",
