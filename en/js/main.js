@@ -119,7 +119,7 @@ function addSearchLayer(){
     "All",
     "Science-Fiction",
     "Self-Imporvement",
-    "Sports",
+    "Romance",
     "Biography",
     "Geography",
     "Action",
