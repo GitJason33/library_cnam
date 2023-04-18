@@ -1,3 +1,5 @@
+import { header } from "./main.js";
+
 const iconLinks = {
   logo: "media/images/logo.svg",
   profile: "media/images/icons/profile-circle.svg",
@@ -39,11 +41,29 @@ const pageLinks = {
 };
 
 const socialMedia = {
-  email: "info@isae.edu.lb",
+  email: "mailto:info@isae.edu.lb",
   instagram: "http://instagram.com/_u/CNAM.Liban/", 
   facebook: "https://www.facebook.com/CNAM Liban/",
   twitter: "https://twitter.com/cnamLiban?s=20"
 };
 
+// this function checks the location of a file based on which folder level we are
+function checkLinks(links){
+  let updated = {};
+  let checkLevel = header.className.slice(header.className.length - 1);
+
+  for(let x in links){
+    updated[x] = links[x];
+    for(let i = 0; i < checkLevel; i++)
+      updated[x] = "../" + updated[x];
+  }
+  return updated;
+}
+
 // export variables to use them
-export { iconLinks, pageLinks, socialMedia };
+export { 
+  iconLinks, 
+  pageLinks, 
+  socialMedia, 
+  checkLinks 
+};

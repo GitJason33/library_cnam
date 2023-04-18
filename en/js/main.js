@@ -1,9 +1,12 @@
 // DO NOT ADD FUNCTIONS TO THIS FILE
-import { iconLinks, pageLinks, socialMedia } from "./links.js";
+import * as Link from "./links.js";
 
-const header = document.querySelector("header");
-let icons = checkLinks(iconLinks);
-let pages = checkLinks(pageLinks);
+export const header = document.querySelector("header");
+let icons = Link.checkLinks(Link.iconLinks);
+let pages = Link.checkLinks(Link.pageLinks);
+
+// prevent current page's link from refreshing the page
+pages[header.id] = "#" + header.id;
 
 console.time("headTime");
 const loading = () => {
@@ -12,52 +15,52 @@ const loading = () => {
   addMenu();
   addSearchLayer();
   addFooter();
+  attachEventHandlers();
 }
 // this adds the event onload for body, special case with modules
 document.addEventListener("DOMContentLoaded", loading);
 
+
+
 function addHeader(){
   header.innerHTML = `
-    <section id="logo">
-      <img src="${icons['logo']}" alt="Logo">
-    </section>
+  <section id="logo">
+    <img src="${icons['logo']}" alt="Logo">
+  </section>
 
-    <section id="bigTitle" class="aTitle">
-      CNAM Library
-    </section>
+  <section id="bigTitle" class="aTitle">
+    CNAM Library
+  </section>
 
-    <section id="accessibility">
-      <div id="profile" title="profile">
-        <img src="${icons['profile']}" alt="account" />
-        <br/>
-        <strong>Login</strong>
-      </div>
+  <section id="accessibility">
+    <div id="profile" title="profile">
+      <img src="${icons['profile']}" alt="account" />
+      <br/>
+      <strong>Login</strong>
+    </div>
 
-      <div id="language" title="choose your language">
-        <img src="${icons['lang']}" alt="language" />
+    <div id="language" title="choose your language">
+      <img src="${icons['lang']}" alt="language" />
 
-        <aside id="langs">
-          <div class="english">
-            <img src="${icons['english']}" >
-            <span>English</span>
-          </div>
+      <aside id="langs">
+        <div class="english">
+          <img src="${icons['english']}" >
+          <span>English</span>
+        </div>
 
-          <div class="french">
-            <img src="${icons['french']}">
-            <span>Français</span>
-          </div>
+        <div class="french">
+          <img src="${icons['french']}">
+          <span>Français</span>
+        </div>
 
-          <div class="arabic">
-            <img src="${icons['arabic']}">
-            <span>العربية</span>
-          </div>
-        </aside>
-      </div>
-    </section>
+        <div class="arabic">
+          <img src="${icons['arabic']}">
+          <span>العربية</span>
+        </div>
+      </aside>
+    </div>
+  </section>
   `;
-
-  document.querySelector("#profile").addEventListener
-    ('click', () => window.open(pages['login'], "_self"));
 };
 
 function addNavBar(){
@@ -127,17 +130,6 @@ function addSearchLayer(){
     ${selection}
   </select>
   `;
-  
-  // add respective events
-  document.querySelector("#searchBar").addEventListener("click", () => {
-    searchLayer.style.visibility = 'visible';
-    searchLayer.style.opacity = "100%";
-  });
-
-  document.querySelector(".closeSearch").addEventListener("click", () => {
-    searchLayer.style.visibility = 'hidden';
-    searchLayer.style.opacity = "0";
-  });
 }
 
 function addMenu(){
@@ -155,33 +147,6 @@ function addMenu(){
   <a href="${pages['contribute']}">Contribute</a>
   <a href="${pages['contact']}">Contact us</a>
   `;
-
-  // events onclick for menu button
-  // open side menu
-  document.querySelector("#sideMenu").addEventListener("click", () => {
-    let menu = document.querySelector("#menu");
-    
-    if(window.innerWidth <= 500){
-      menu.style.height = "100%";
-      menu.style.width = "100%";
-    }else{
-      menu.style.width = "300px";
-      menu.style.height = "100%";
-    }
-    menu.style.visibility = 'visible';
-  });
-
-  // close side menu
-  document.querySelector("#closeMenu").addEventListener("click", () =>{
-    let menu = document.querySelector("#menu");
-
-    if(window.innerWidth <= 500)
-      menu.style.height = "0";
-    else
-      menu.style.width = "0";
-    
-    menu.style.visibility = 'hidden';
-  });
 };
 
 function addFooter(){
@@ -206,43 +171,69 @@ function addFooter(){
     <div>
       <div class="email">
         <img src="${icons['email']}">
-        <a href="mailto:${socialMedia['email']}">info@isae.edu.lb</a>
+        <a href="${Link.socialMedia['email']}">info@isae.edu.lb</a>
       </div>
 
       <div class="instagram">
         <img src="${icons['instagram']}">
-        <a href="${socialMedia['instagram']}">CNAM.Liban</a>
+        <a href="${Link.socialMedia['instagram']}">CNAM.Liban</a>
       </div>
 
       <div class="facebook">
         <img src="${icons['facebook']}">
-        <a href="${socialMedia['facebook']}">CNAM Liban</a>
+        <a href="${Link.socialMedia['facebook']}">CNAM Liban</a>
       </div>
 
       <div class="twitter">
         <img src="${icons['twitter']}">
-        <a href="${socialMedia['twitter']}">CNAM Liban</a>
+        <a href="${Link.socialMedia['twitter']}">CNAM Liban</a>
       </div>
     </div>
   </section>
   `;
 };
 
-// this function check the location of a file based on which folder level we are
-function checkLinks(links){
-  let updated = {};
-  let checkLevel = header.className.slice(header.className.length - 1);
+function attachEventHandlers(){
+  // link to login page
+  document.querySelector("#profile").addEventListener('click', 
+    () => window.open(pages['login'], "_self"));
 
-  for(let x in links){
-    updated[x] = links[x];
-    for(let i = 0; i < checkLevel; i++)
-      updated[x] = "../" + updated[x];
-  }
-  return updated;
+  // search buttons for closing and opening the searchLayer
+  let search = document.querySelector("#searchLayer");
+
+  document.querySelector("#searchBar").addEventListener("click", () => {
+    search.style.visibility = 'visible';
+    search.style.opacity = "100%";
+  });
+  document.querySelector(".closeSearch").addEventListener("click", () => {
+    search.style.visibility = 'hidden';
+    search.style.opacity = "0";
+  });
+
+  // open side menu
+  document.querySelector("#sideMenu").addEventListener("click", () => {
+    let menu = document.querySelector("#menu");
+    
+    if(window.innerWidth <= 500){
+      menu.style.height = "100%";
+      menu.style.width = "100%";
+    }else{
+      menu.style.width = "300px";
+      menu.style.height = "100%";
+    }
+    menu.style.visibility = 'visible';
+  });
+  // close side menu
+  document.querySelector("#closeMenu").addEventListener("click", () =>{
+    let menu = document.querySelector("#menu");
+
+    if(window.innerWidth <= 500)
+      menu.style.height = "0";
+    else
+      menu.style.width = "0";
+    
+    menu.style.visibility = 'hidden';
+  });
 }
 
-// this function will replace a button's link that points towards the current page with an empty one
-// function _checkCurrentPageLink(linkArray){
-  
-// }
 console.timeEnd("headTime");
