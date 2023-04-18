@@ -31,7 +31,6 @@ main {
   color: #ECF5CE;
   padding: 30px 7px;
   background-image: url(../../media/images/bg/background.svg);
-  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -54,18 +53,6 @@ header #logo img {
   width: 80px;
   height: auto;
 }
-@media only screen and (max-width: 300px) {
-  header #logo img {
-    width: 60px;
-    height: auto;
-  }
-}
-@media only screen and (min-width: 500px) {
-  header #logo img {
-    width: 100px;
-    height: auto;
-  }
-}
 header #bigTitle {
   font-size: 13vw;
   order: 3;
@@ -76,21 +63,6 @@ header #bigTitle {
   align-items: center;
   width: 100%;
 }
-@media only screen and (min-width: 500px) {
-  header #bigTitle {
-    font-size: 70px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  header #bigTitle {
-    width: auto;
-  }
-}
-@media only screen and (min-width: 992px) {
-  header #bigTitle {
-    font-size: 90px;
-  }
-}
 header #accessibility {
   width: 150px;
   display: flex;
@@ -99,17 +71,6 @@ header #accessibility {
   justify-content: space-around;
   align-items: center;
 }
-@media only screen and (min-width: 768px) {
-  header #accessibility {
-    order: 3;
-  }
-}
-@media only screen and (max-width: 300px) {
-  header #accessibility {
-    width: 100px;
-    height: auto;
-  }
-}
 header #accessibility div {
   cursor: pointer;
   text-align: center;
@@ -117,12 +78,6 @@ header #accessibility div {
 header #accessibility div img {
   width: 50px;
   height: auto;
-}
-@media only screen and (max-width: 300px) {
-  header #accessibility div img {
-    width: 35px;
-    height: auto;
-  }
 }
 header #accessibility #language {
   position: relative;
@@ -205,11 +160,6 @@ header #accessibility #language #langs div:not(header #accessibility #language #
   position: relative;
   bottom: 2px;
 }
-@media only screen and (min-width: 500px) {
-  #navBar #leftNav span {
-    display: inline;
-  }
-}
 #navBar #rightNav, #navBar #leftNav {
   display: flex;
   display: -webkit-flex;
@@ -271,25 +221,10 @@ header #accessibility #language #langs div:not(header #accessibility #language #
   position: absolute;
   right: 0;
   cursor: pointer;
-  border: 2px inset #005257;
-  border-left: none;
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
-}
-@media only screen and (min-width: 500px) {
-  #searchLayer .searchPart button[type=submit] {
-    font-size: 16px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  #searchLayer .searchPart button[type=submit] {
-    font-size: 20px;
-  }
-}
-@media only screen and (min-width: 992px) {
-  #searchLayer .searchPart button[type=submit] {
-    font-size: 24px;
-  }
+  border: 2px inset #005257;
+  border-left: none;
 }
 #searchLayer img {
   width: 25px;
@@ -319,21 +254,6 @@ header #accessibility #language #langs div:not(header #accessibility #language #
   -webkit-transition: box-shadow 300ms;
   -o-transition: box-shadow 300ms;
   -moz-transition: box-shadow 300ms;
-}
-@media only screen and (min-width: 500px) {
-  #searchLayer input {
-    font-size: 16px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  #searchLayer input {
-    font-size: 20px;
-  }
-}
-@media only screen and (min-width: 992px) {
-  #searchLayer input {
-    font-size: 24px;
-  }
 }
 #searchLayer input:focus {
   box-shadow: 0px 0px 4px 2px #BDFF00;
@@ -365,18 +285,6 @@ header #accessibility #language #langs div:not(header #accessibility #language #
   -webkit-transition: 500ms;
   -o-transition: 500ms;
   -moz-transition: 500ms;
-}
-@media only screen and (max-width: 500px) {
-  #menu {
-    left: 0;
-  }
-}
-@media only screen and (min-width: 500px) {
-  #menu {
-    width: 0;
-    height: 100%;
-    right: 0;
-  }
 }
 #menu img {
   width: 25px;
@@ -420,11 +328,6 @@ footer {
   flex-flow: column wrap;
   justify-content: space-between;
 }
-@media only screen and (min-width: 500px) {
-  footer {
-    flex-direction: row;
-  }
-}
 footer h1 {
   margin: 0;
   font-size: 33px;
@@ -450,4 +353,66 @@ footer ul li {
 footer #rightFoot a:hover {
   -webkit-text-decoration: underline #005257;
           text-decoration: underline #005257;
+}
+
+@media only screen and (max-width: 300px) {
+  header #logo img {
+    width: 60px;
+    height: auto;
+  }
+  header #accessibility {
+    width: 100px;
+    height: auto;
+  }
+  header #accessibility div img {
+    width: 35px;
+    height: auto;
+  }
+}
+@media only screen and (min-width: 500px) {
+  header #logo img {
+    width: 100px;
+    height: auto;
+  }
+  header #bigTitle {
+    font-size: 70px;
+  }
+  #navBar #leftNav span {
+    display: initial;
+  }
+  #searchLayer button[type=submit], #searchLayer input {
+    font-size: 16px;
+  }
+  #menu {
+    width: 0;
+    height: 100%;
+    right: 0;
+  }
+  footer {
+    flex-direction: row;
+  }
+}
+@media only screen and (min-width: 768px) {
+  header #bigTitle {
+    width: auto;
+  }
+  header #accessibility {
+    order: 3;
+  }
+  #searchLayer button[type=submit], #searchLayer input {
+    font-size: 20px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  header #bigTitle {
+    font-size: 90px;
+  }
+  #searchLayer button[type=submit], #searchLayer input {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  #menu {
+    left: 0;
+  }
 }/*# sourceMappingURL=main.css.map */

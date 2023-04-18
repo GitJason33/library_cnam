@@ -31,3 +31,8 @@ $huge: "min-width: 1800px";
   width: $w;
   height: $h;
 }
+@mixin inputImage($top, $left){
+  position: absolute;
+  top: $top; 
+  left: $left; 
+}

@@ -5,7 +5,6 @@ main{
   color: $light;
   padding: 30px $pad;
   background-image: url(../../media/images/bg/background.svg);
-  background-repeat: no-repeat;
   background-size: cover;
 }
 // common style for titles
@@ -23,11 +22,7 @@ header{
   justify-content: space-between;
 
   // ---------------- logo ------------------
-  #logo img{ 
-    @include dimensions(80px); 
-    @include media($small){ @include dimensions(60px); }
-    @include media($bigPhone){ @include dimensions(100px); }
-  }
+  #logo img{ @include dimensions(80px); }
 
   // ---------------- header's title ------------------
   #bigTitle{
@@ -35,23 +30,14 @@ header{
     order: 3; // flex-item order
     @include perfect_center;
     width: 100%;
-
-    @include media($bigPhone){ font-size: 70px; }
-    @include media($tablet){ width: auto; }
-    @include media($laptop){ font-size: 90px; }
   }
   
   // ------------- accessibility buttons --------------
   #accessibility{
     width: 150px;
-    @include media($tablet){ order: 3; }
-    @include media($small){ @include dimensions(100px); }
 
-    div {
-      img{ 
-        @include dimensions(50px); 
-        @include media($small){ @include dimensions(35px); }
-      }
+    div{
+      img{ @include dimensions(50px); }
       cursor: pointer;
       text-align: center;
     }
@@ -141,14 +127,12 @@ header{
   //-------------- home & search button ---------------
   #leftNav span{ 
     display: none;
-    @include media($bigPhone){ display: inline; }
     position: relative; 
     bottom: 2px;
   }
   // ------------- side flexes --------------
-  #rightNav, #leftNav {
-    @include flex($wrap: nowrap);
-  }
+  #rightNav, #leftNav { @include flex($wrap: nowrap); }
+
   // ------------ coin balance --------------
   #coinBalance label{
     position: relative;
@@ -202,15 +186,12 @@ header{
       right: 0;
       cursor: pointer;
 
-      border: bord(); 
-      border-left: none;
       border: {
         top-right-radius: $radius;
         bottom-right-radius: $radius;
       }
-      @include media($bigPhone){ font-size: 16px; }
-      @include media($tablet){ font-size: 20px; }
-      @include media($laptop){ font-size: 24px; }
+      border: bord();
+      border-left: none;
     }
   }
 
@@ -237,9 +218,6 @@ header{
     border-right: none;
     @include transition(box-shadow 300ms);
 
-    @include media($bigPhone){ font-size: 16px; }
-    @include media($tablet){ font-size: 20px; }
-    @include media($laptop){ font-size: 24px; }
     &:focus{ box-shadow: 0px 0px 4px 2px $mainCol; }
   }
   select{
@@ -264,17 +242,10 @@ header{
   position: fixed;
   top: 0;
   z-index: 11;
-  @include media("max-width: 500px"){ left: 0; }
   
   @include dimensions(100%, 0); // max H = 406px
   visibility: hidden;
   overflow-y: auto;
-  
-  // when above 500px of width, let it come from right
-  @include media($bigPhone){
-    @include dimensions(0, 100%); // max W = 300px
-    right: 0;
-  }
   @include transition(500ms);
 
   img{ @include dimensions(25px, 25px); }
@@ -316,9 +287,6 @@ footer{
   @include flex(column);
   justify-content: space-between;
 
-  @include media($bigPhone){
-    flex-direction: row;
-  }
   // title
   h1{ 
     margin: 0;
@@ -341,3 +309,6 @@ footer{
   }
 }
 // --------------- FOOTER END -------------------
+
+// add responsiveness to the page
+@import 'responsive-main';
