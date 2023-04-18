@@ -42,7 +42,7 @@ main #login-form{
     }
   }
   .sign-in{ @include media($bigPhone){ height: 450px; } }
-  .sign-up{ @include media($bigPhone){ height: 550px; } }
+  .sign-up{ @include media($bigPhone){ height: auto; } }
 
   .take-info{
     label{ 

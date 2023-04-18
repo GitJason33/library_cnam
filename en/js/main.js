@@ -1,5 +1,9 @@
-// main component's file
+// DO NOT ADD FUNCTIONS TO THIS FILE
+import { iconLinks, pageLinks, socialMedia } from "./links.js";
+
 const header = document.querySelector("header");
+let icons = checkLinks(iconLinks);
+let pages = checkLinks(pageLinks);
 
 console.time("headTime");
 const loading = () => {
@@ -9,24 +13,13 @@ const loading = () => {
   addSearchLayer();
   addFooter();
 }
-console.timeEnd("headTime");
+// this adds the event onload for body, special case with modules
+document.addEventListener("DOMContentLoaded", loading);
 
 function addHeader(){
-  let links = {
-    logo: "media/images/logo.svg",
-    theme: "media/images/icons/moon.svg",
-    profile: "media/images/icons/profile-circle.svg",
-    lang: "media/images/icons/translate.svg",
-    english: "media/images/icons/country/uk.svg",
-    french: "media/images/icons/country/france.svg",
-    arabic: "media/images/icons/country/lebanon.svg",
-    login: "en/account/login.html"
-  };
-  links = checkLinks(links);
-
   header.innerHTML = `
     <section id="logo">
-      <img src="${links['logo']}" alt="Logo">
+      <img src="${icons['logo']}" alt="Logo">
     </section>
 
     <section id="bigTitle" class="aTitle">
@@ -35,27 +28,27 @@ function addHeader(){
 
     <section id="accessibility">
       <div id="profile" title="profile">
-        <img src="${links['profile']}" alt="account" />
+        <img src="${icons['profile']}" alt="account" />
         <br/>
         <strong>Login</strong>
       </div>
 
       <div id="language" title="choose your language">
-        <img src="${links['lang']}" alt="language" />
+        <img src="${icons['lang']}" alt="language" />
 
         <aside id="langs">
           <div class="english">
-            <img src="${links['english']}" >
+            <img src="${icons['english']}" >
             <span>English</span>
           </div>
 
           <div class="french">
-            <img src="${links['french']}">
+            <img src="${icons['french']}">
             <span>Français</span>
           </div>
 
           <div class="arabic">
-            <img src="${links['arabic']}">
+            <img src="${icons['arabic']}">
             <span>العربية</span>
           </div>
         </aside>
@@ -64,41 +57,31 @@ function addHeader(){
   `;
 
   document.querySelector("#profile").addEventListener
-  ('click', () => window.open(links['login']))
+    ('click', () => window.open(pages['login'], "_self"));
 };
 
 function addNavBar(){
-  let links = {
-    mainPage: "index.html",
-    // icons
-    home: "media/images/icons/home.svg",
-    search: "media/images/icons/search.svg",
-    coin: "media/images/icons/coin.svg",
-    menu: "media/images/icons/menu.svg"
-  };
-  links = checkLinks(links);
-
   document.querySelector("#navBar").innerHTML = `
   <section id="leftNav">
-    <div id="homeButton" onclick="window.open('${links['mainPage']}', '_self')">
+    <div id="homeButton" onclick="window.open('${pages['home']}', '_self')">
       <span>HOME</span>
-      <img src="${links['home']}" alt="home">
+      <img src="${icons['home']}" alt="home">
     </div>
 
     <div id="searchBar" title="search">
       <span>SEARCH</span>
-      <img src="${links['search']}">
+      <img src="${icons['search']}">
     </div>
   </section>
 
   <section id="rightNav">
     <div id="coinBalance" title="your coins">
       <label>0</label>
-      <img src="${links['coin']}">
+      <img src="${icons['coin']}">
     </div>
 
     <div id="sideMenu" title="menu">
-      <img src="${links['menu']}"/>
+      <img src="${icons['menu']}"/>
     </div>
   </section>
   `;
@@ -111,9 +94,7 @@ function addSearchLayer(){
   searchLayer.method = "get";
   searchLayer.action = "#";
 
-  let links = checkLinks({
-    search: "media/images/icons/search.svg"
-  });
+  // this one is for the search genre options
   let selection = "";
   let options = [
     "All",
@@ -128,7 +109,7 @@ function addSearchLayer(){
   ];
   // add options depending on array
   for(let i in options)
-   selection += `<option value="${options[i]}">${options[i]}</option>\n`;
+    selection += `<option value="${options[i]}">${options[i]}</option>\n`;
 
   searchLayer.innerHTML = `
   <div>
@@ -137,7 +118,7 @@ function addSearchLayer(){
   </div>
   <div class="searchPart">
     <label>
-      <img src="${links['search']}"/>
+      <img src="${icons['search']}"/>
       <input type="text" placeholder="Search..." name="search" required>
     </label>
     <button type="submit">Enter</button>
@@ -160,42 +141,27 @@ function addSearchLayer(){
 }
 
 function addMenu(){
-  let links = {
-    cartIcon: "media/images/icons/shopping-card.svg",
-    
-    // page links
-    cart: "",
-    trending: "",
-    categories: "",
-    favorites: "",
-    aboutUs: "en/about-us.html",
-    contribute: "",
-    contactUs: "en/contact-us.html"
-  };
-  links = checkLinks(links);
-  
   document.querySelector("#menu").innerHTML = `
   <span id="closeMenu">x</span>
   <section class="aTitle">Menu</section>
-  <a href="${links['cart']}">
+  <a href="${pages['cart']}">
     Cart
-    <img src="${links['cartIcon']}">
+    <img src="${icons['cart']}">
   </a>
-  <a href="${links['trending']}">Trending</a>
-  <a href="${links['categories']}">Categories</a>
-  <a href="${links['favorites']}">Favorites</a>
-  <a href="${links['aboutUs']}">About us</a>
-  <a href="${links['contribute']}">Contribute</a>
-  <a href="${links['contactUs']}">Contact us</a>
+  <a href="${pages['trending']}">Trending</a>
+  <a href="${pages['categories']}">Categories</a>
+  <a href="${pages['favorites']}">Favorites</a>
+  <a href="${pages['about']}">About us</a>
+  <a href="${pages['contribute']}">Contribute</a>
+  <a href="${pages['contact']}">Contact us</a>
   `;
 
   // events onclick for menu button
   // open side menu
   document.querySelector("#sideMenu").addEventListener("click", () => {
-    let currentWidth = window.innerWidth;
     let menu = document.querySelector("#menu");
     
-    if(currentWidth <= 500){
+    if(window.innerWidth <= 500){
       menu.style.height = "100%";
       menu.style.width = "100%";
     }else{
@@ -207,41 +173,18 @@ function addMenu(){
 
   // close side menu
   document.querySelector("#closeMenu").addEventListener("click", () =>{
-    let currentWidth = window.innerWidth;
     let menu = document.querySelector("#menu");
 
-    
-    if(currentWidth <= 500)
-    menu.style.height = "0";
+    if(window.innerWidth <= 500)
+      menu.style.height = "0";
     else
-    menu.style.width = "0";
+      menu.style.width = "0";
     
     menu.style.visibility = 'hidden';
   });
 };
 
 function addFooter(){
-  let links = {
-    // payment methods
-    apple: "media/images/icons/payment/apple-pay.svg",
-    mastercard: "media/images/icons/payment/mastercard.svg",
-    visa: "media/images/icons/payment/visa-classic.svg",
-    wu: "media/images/icons/payment/western-union.svg",
-
-    // social icons
-    email: "media/images/icons/social/email.svg",
-    instagram: "media/images/icons/social/instagram.svg",
-    facebook: "media/images/icons/social/facebook.svg",
-    twitter: "media/images/icons/social/twitter.svg"
-  };
-  links = checkLinks(links);
-
-  // links to social media accounts
-  let email = "info@isae.edu.lb";
-  let instagram = "http://instagram.com/_u/CNAM.Liban/";
-  let facebook = "https://www.facebook.com/CNAM Liban/";
-  let twitter = "https://twitter.com/cnamLiban?s=20";
-
   document.querySelector('footer').innerHTML = `
   <section id="leftFoot">
     <h1 class="aTitle">Infos:</h1>
@@ -250,10 +193,10 @@ function addFooter(){
       <li>Based in Lebanon</li>
       <li>University of CNAM - Lebanon</li>
       <li>
-        <img src="${links['apple']}">
-        <img src="${links['mastercard']}">
-        <img src="${links['visa']}">
-        <img src="${links['wu']}">
+        <img src="${icons['apple']}">
+        <img src="${icons['mastercard']}">
+        <img src="${icons['visa']}">
+        <img src="${icons['wu']}">
       </li>
     </ul>
   </section>
@@ -262,23 +205,23 @@ function addFooter(){
     <h1 class="aTitle">Social media:</h1>
     <div>
       <div class="email">
-        <img src="${links['email']}">
-        <a href="mailto:${email}">info@isae.edu.lb</a>
+        <img src="${icons['email']}">
+        <a href="mailto:${socialMedia['email']}">info@isae.edu.lb</a>
       </div>
 
       <div class="instagram">
-        <img src="${links['instagram']}">
-        <a href="${instagram}">CNAM.Liban</a>
+        <img src="${icons['instagram']}">
+        <a href="${socialMedia['instagram']}">CNAM.Liban</a>
       </div>
 
       <div class="facebook">
-        <img src="${links['facebook']}">
-        <a href="${facebook}">CNAM Liban</a>
+        <img src="${icons['facebook']}">
+        <a href="${socialMedia['facebook']}">CNAM Liban</a>
       </div>
 
       <div class="twitter">
-        <img src="${links['twitter']}">
-        <a href="${twitter}">CNAM Liban</a>
+        <img src="${icons['twitter']}">
+        <a href="${socialMedia['twitter']}">CNAM Liban</a>
       </div>
     </div>
   </section>
@@ -297,3 +240,9 @@ function checkLinks(links){
   }
   return updated;
 }
+
+// this function will replace a button's link that points towards the current page with an empty one
+// function _checkCurrentPageLink(linkArray){
+  
+// }
+console.timeEnd("headTime");

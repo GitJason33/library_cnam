@@ -93,7 +93,7 @@ main #login-form .form span, main #login-form .form input, main #login-form .for
 }
 @media only screen and (min-width: 500px) {
   main #login-form .sign-up {
-    height: 550px;
+    height: auto;
   }
 }
 main #login-form .take-info label {
