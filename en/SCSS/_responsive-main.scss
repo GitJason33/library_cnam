@@ -20,7 +20,7 @@
   #navBar #leftNav span{ display: initial; }
 
   #searchLayer {
-    button[type='submit'], input{ font-size: 16px; }
+    .searchPart button[type='submit'], input{ font-size: 16px; }
   }
   // when above 500px width, menu comes from right
   #menu{
@@ -37,7 +37,7 @@
     #accessibility{ order: 3; }
   } 
   #searchLayer {
-    button[type='submit'], input{ font-size: 20px; }
+    .searchPart button[type='submit'], input{ font-size: 20px; }
   }
 }
 
@@ -45,7 +45,7 @@
 @include media($laptop){
   header #bigTitle{ font-size: 90px; }
   #searchLayer {
-    button[type='submit'], input{
+    .searchPart button[type='submit'], input{
       font-size: 20px;}
   }
 }

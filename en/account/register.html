@@ -29,55 +29,65 @@
         <h2 class="aTitle">SIGN UP</h2>
         <section class="take-info">
           <label>
-            <input type="text" name="name" pattern="[A-Za-z]+" required>
+            <input type="text" name="fname" pattern="[A-Za-z]{3,}" required>
             <span>First Name</span>
           </label>
+          <div class="error"></div>
 
           <label>
-            <input type="text" name="name" pattern="[A-Za-z]+" required>
+            <input type="text" name="lname" pattern="[A-Za-z]{3,}" required>
             <span>Last Name</span>
           </label>
+          <div class="error"></div>
 
-          <label>
-            <input type="date" name="date" required>
-            <span>Date Of Birth</span>
-          </label>
+          <section class="country-birth">
+            <label class="birth">
+              <input type="date" name="birthDate" required>
+              <span>Date of Birth</span>
+            </label>
+  
+            <label class="country">
+              <select size="1" name="country" required>
+                <option value="Lebanon">Lebanon</option>
+                <option value="France">France</option>
+                <option value="USA">USA</option>
+              </select>
+              <span>Country</span>
+            </label>
+          </section>
+          <div class="error">error</div>
 
-          <label>
-            <select size="1" name="country" required>
-              <option value="">-- Select a Country --</option>
-              <option value="France">France</option>
-              <option value="USA">USA</option>
-              <option value="Lebanon">Lebanon</option>
-            </select>
-            <span>Country</span>
-          </label>
-
-          <label>
+          <section class="phone">
             <select size="1" id="country" name="country number" required onclick="changepattern()">
-              <option value="">XXX</option>
-              <option value="France">+33(FRA)</option>
-              <option value="USA">+1(USA)</option>
-              <option value="Lebanon">+961(LEB)</option>
+              <option value="Lebanon">(LEB) +961</option>
+              <option value="France">(FRA) +33</option>
+              <option value="USA">(USA) +1</option>
             </select>
-            <input type="tel" name="phone" id="phone"  required>
-            <span>Phone Number</span>
-          </label>
+            
+            <label>
+              <input type="tel" name="phone" id="phone"  required>
+              <span>Phone Number</span>
+            </label>
+          </section>
+          <div class="error">error</div>
           
           <label>
             <input type="email" name="email" required>
             <span>Email</span>
           </label>
+          <div class="error"></div>
 
           <label>
-            <input id="pass" type="password" name="password" required>
+            <input id="pass" type="password" name="password" minlength="8" required>
             <span>Password</span>
           </label>
+          <div class="error"></div>
 
           <label>
-            <input id="cpass" type="password" required>
+            <input id="cpass" type="password" minlength="8" required>
             <span>Confirm Password</span>
           </label>
+          <div class="error"></div>
         </section>
 
         <section class="submit">

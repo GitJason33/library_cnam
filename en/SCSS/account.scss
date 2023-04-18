@@ -4,6 +4,13 @@ main{
   color: $dark; 
   background-image: url(../../media/images/bg/bg-animated-shapes.svg);
 }
+// error message style
+.error{
+  color: crimson;
+  font: { weight:bold; size:18px; }
+  margin: 5px;
+  @include transform(translateY(-8px));
+}
 
 main #login-form{
   font-family: 'Nunito Sans', sans-serif;
@@ -34,7 +41,7 @@ main #login-form{
     
     @include media($tablet){ width: 650px; padding: 20px}
 
-    span, input, button{
+    span, input, button, select{
       font-size: 15px;
 
       @include media($small){ font-size: 12px; }
@@ -48,20 +55,20 @@ main #login-form{
     label{ 
       display: block; 
       position: relative; 
-      margin-bottom: $pad*3;
+      margin-bottom: 18px;
       &:last-child{ margin-bottom: $pad; }
     }
     label span{
       background-color: $extraCol;
       font-weight: bold;
-      padding: 0 $pad/2;
+      padding: 0 calc($pad/2);
       position: absolute;
       bottom: $pad; 
-      left: ($pad/2) + 2px; // padding + borderWidth
+      left: calc($pad/2) + 2px; // padding + borderWidth
 
       @include transition(300ms);
     }
-    label input{
+    label input, .country select, .phone select{
       display: block;
       background-color: transparent;
       position: relative;
@@ -78,15 +85,94 @@ main #login-form{
       }
 
       &:focus ~ span, &:valid ~ span{
-        bottom: 28px;
+        bottom: 26px;
         z-index: 2;
         font-size: 12px;
 
-        @include media($small){ font-size:9px; bottom:26px; }
+        @include media($small){ font-size:9px; bottom:24px; }
         @include media($bigPhone){ font-size:15px; }
       }
     }
   }
+
+  // country and dateOfBirth container
+  .country-birth{
+    @include flex(column);
+    @include media($bigPhone){ flex-direction: row; }
+    margin-bottom: 18px;
+
+    .birth{
+      @include media($bigPhone){ margin: 0; }
+      input{ 
+        padding: $pad*2 $pad; 
+        @include media($bigPhone){
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+          border-right: none;
+        }
+      }//
+    }
+    .country span, .birth span{
+      top: -$pad - 1;
+      z-index: 2;
+      height: fit-content;
+      font-size: 12px;
+      
+      @include media($small){ font-size:9px; top: -$pad + 2; }
+      @include media($bigPhone){ top: -$pad - 3; font-size:15px; }
+    }
+    .country{
+      flex-grow: 1;
+      margin: 0 !important;
+
+      select{
+        display: block;
+        height: 40px;
+        font-weight: bold;
+
+        @include media($bigPhone){
+          padding: $pad*2+1 $pad;
+          height: auto;
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+        }
+      }
+    }//
+  }
+
+  // phone number and country code container
+  .phone{
+    @include flex(nowrap);
+    margin-bottom: 18px;
+
+    label{ 
+      flex-grow: 1;
+      margin: 0 !important;
+    }
+    input{ 
+      height: 100%;
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+    }
+    select{
+      width: auto !important;
+      border-right: none !important;
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+      padding: $pad 0 !important;
+    }//
+  }
+  // some lil styling for options inside select tags
+  .country-birth select, .phone select{
+    option{
+      color: $dark;
+      background-color: $extraCol;
+    }
+    color: $dark;
+    cursor: pointer;
+  }
+
+  // register and login buttons container
   .submit {
     @include flex(nowrap, column);
     justify-content: space-around;
@@ -98,7 +184,7 @@ main #login-form{
     button{
       display: block;
       background-color: $dark;
-      color: $light;
+      color: $mainCol;
       font: { weight:500; } 
       padding: $pad;
 
@@ -111,7 +197,7 @@ main #login-form{
         width: 50%;
         &:not(&:last-child){ margin-right: $pad; }
       }
-    }
+    }//
   }
   .forgot-pass{
     text-align: center;

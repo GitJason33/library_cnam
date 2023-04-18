@@ -380,7 +380,7 @@ footer #rightFoot a:hover {
   #navBar #leftNav span {
     display: initial;
   }
-  #searchLayer button[type=submit], #searchLayer input {
+  #searchLayer .searchPart button[type=submit], #searchLayer input {
     font-size: 16px;
   }
   #menu {
@@ -399,7 +399,7 @@ footer #rightFoot a:hover {
   header #accessibility {
     order: 3;
   }
-  #searchLayer button[type=submit], #searchLayer input {
+  #searchLayer .searchPart button[type=submit], #searchLayer input {
     font-size: 20px;
   }
 }
@@ -407,7 +407,7 @@ footer #rightFoot a:hover {
   header #bigTitle {
     font-size: 90px;
   }
-  #searchLayer button[type=submit], #searchLayer input {
+  #searchLayer .searchPart button[type=submit], #searchLayer input {
     font-size: 20px;
   }
 }
