@@ -29,15 +29,18 @@ const iconLinks = {
 const pageLinks = {
   home: "index.html",
   login: "en/account/login.html",
-  register: 'en/account/register',
+  register: 'en/account/register.html',
+  profile: 'en/account/profile.html',
+  password: 'en/account/reset-password.html',
+  
 
-  cart: "",
-  trending: "",
-  categories: "",
-  favorites: "",
-  about: "en/about-us.html",
-  contribute: "",
-  contact: "en/contact-us.html"
+  cart: "en/other/checkout.html",
+  trending: "en/other/trending.html",
+  categories: "en/category.html",
+  favorites: "en/other/favorites.html",
+  about: "en/other/about-us.html",
+  contribute: "en/other/contribute.html",
+  contact: "en/other/contact-us.html"
 };
 
 const php = {
