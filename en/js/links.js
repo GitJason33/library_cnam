@@ -1,4 +1,4 @@
-import { header } from "./main.js";
+import { header } from "./main-v2.js";
 
 const iconLinks = {
   logo: "media/images/logo.svg",
@@ -40,6 +40,10 @@ const pageLinks = {
   contact: "en/contact-us.html"
 };
 
+const php = {
+  search: "en/php/search.php" 
+};
+
 const socialMedia = {
   email: "mailto:info@isae.edu.lb",
   instagram: "http://instagram.com/_u/CNAM.Liban/", 
@@ -64,6 +68,7 @@ function checkLinks(links){
 export { 
   iconLinks, 
   pageLinks, 
+  php,
   socialMedia, 
   checkLinks 
 };

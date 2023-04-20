@@ -1,15 +1,65 @@
 // DO NOT ADD FUNCTIONS TO THIS FILE
-import * as Link from "./links.js";
+const header = document.querySelector("header");
 
-export const header = document.querySelector("header");
-let icons = Link.checkLinks(Link.iconLinks);
-let pages = Link.checkLinks(Link.pageLinks);
+const icons = checkLinks({
+  logo: "media/images/logo.svg",
+  profile: "media/images/icons/profile-circle.svg",
 
-// prevent current page's link from refreshing the page
-pages[header.id] = "#" + header.id;
+  lang: "media/images/icons/translate.svg",
+  english: "media/images/icons/country/uk.svg",
+  french: "media/images/icons/country/france.svg",
+  arabic: "media/images/icons/country/lebanon.svg",
 
-console.time("headTime");
+  home: "media/images/icons/home.svg",
+  search: "media/images/icons/search.svg",
+  coin: "media/images/icons/coin.svg",
+  menu: "media/images/icons/menu.svg",
+
+  cart: "media/images/icons/shopping-cart.svg",
+  apple: "media/images/icons/payment/apple-pay.svg",
+  mastercard: "media/images/icons/payment/mastercard.svg",
+  visa: "media/images/icons/payment/visa-classic.svg",
+  wu: "media/images/icons/payment/western-union.svg",
+
+  email: "media/images/icons/social/email.svg",
+  instagram: "media/images/icons/social/instagram.svg",
+  facebook: "media/images/icons/social/facebook.svg",
+  twitter: "media/images/icons/social/twitter.svg"
+});
+
+const pages = checkLinks({
+  home: "index.html",
+  login: "en/account/login.html",
+  register: 'en/account/register',
+
+  cart: "",
+  trending: "",
+  categories: "",
+  favorites: "",
+  about: "en/about-us.html",
+  contribute: "",
+  contact: "en/contact-us.html"
+});
+
+const php = checkLinks({
+  search: "en/php/search.php" 
+});
+
+const socialMedia = {
+  email: "mailto:info@isae.edu.lb",
+  instagram: "http://instagram.com/_u/CNAM.Liban/", 
+  facebook: "https://www.facebook.com/CNAM Liban/",
+  twitter: "https://twitter.com/cnamLiban?s=20"
+};
+
+
+
 const loading = () => {
+  // adds an icon for the page
+  document.head.innerHTML += `<link rel='icon' href='${icons.logo}'/>`;
+
+
+  // adds the rest of components
   addHeader();
   addNavBar();
   addMenu();
@@ -17,7 +67,11 @@ const loading = () => {
   addFooter();
   attachEventHandlers();
 }
-// this adds the event onload for body, special case with modules
+
+// prevent current page's link from refreshing the page
+pages[header.id] = "#" + header.id;
+
+// this adds the event onload for body and runs it
 document.addEventListener("DOMContentLoaded", loading);
 
 
@@ -63,6 +117,8 @@ function addHeader(){
   `;
 };
 
+
+
 function addNavBar(){
   document.querySelector("#navBar").innerHTML = `
   <section id="leftNav">
@@ -90,25 +146,39 @@ function addNavBar(){
   `;
 };
 
+
+
 function addSearchLayer(){
   let searchLayer = document.querySelector("#searchLayer");
 
   // ADD form infos here
-  searchLayer.method = "get";
-  searchLayer.action = "#";
+  searchLayer.method = "post";
+  searchLayer.action = php['search'];
 
   // this one is for the search genre options
   let selection = "";
   let options = [
     "All",
-    "Science-Fiction",
-    "Self-Improvement",
     "Romance",
+    "Fantasy",
     "Biography",
-    "Geography",
-    "Action",
+    "Self Improvement",
+    "Comedy",
     "Thriller",
-    "Comedy"
+    "Science Fiction",
+    "History",
+    "Sports",
+    "Cooking",
+    "Science",
+    "Education",
+    "Kids",
+    "Manga",
+    "Health",
+    "Religion",
+    "Technology",
+    "Bande Dessinee",
+    "Law",
+    "Comics"
   ];
   // add options depending on array
   for(let i in options)
@@ -132,6 +202,8 @@ function addSearchLayer(){
   `;
 }
 
+
+
 function addMenu(){
   document.querySelector("#menu").innerHTML = `
   <span id="closeMenu">x</span>
@@ -148,6 +220,8 @@ function addMenu(){
   <a href="${pages['contact']}">Contact us</a>
   `;
 };
+
+
 
 function addFooter(){
   document.querySelector('footer').innerHTML = `
@@ -171,27 +245,29 @@ function addFooter(){
     <div>
       <div class="email">
         <img src="${icons['email']}">
-        <a href="${Link.socialMedia['email']}">info@isae.edu.lb</a>
+        <a href="${socialMedia['email']}">info@isae.edu.lb</a>
       </div>
 
       <div class="instagram">
         <img src="${icons['instagram']}">
-        <a href="${Link.socialMedia['instagram']}">CNAM.Liban</a>
+        <a href="${socialMedia['instagram']}">CNAM.Liban</a>
       </div>
 
       <div class="facebook">
         <img src="${icons['facebook']}">
-        <a href="${Link.socialMedia['facebook']}">CNAM Liban</a>
+        <a href="${socialMedia['facebook']}">CNAM Liban</a>
       </div>
 
       <div class="twitter">
         <img src="${icons['twitter']}">
-        <a href="${Link.socialMedia['twitter']}">CNAM Liban</a>
+        <a href="${socialMedia['twitter']}">CNAM Liban</a>
       </div>
     </div>
   </section>
   `;
 };
+
+
 
 function attachEventHandlers(){
   // link to login page
@@ -236,4 +312,17 @@ function attachEventHandlers(){
   });
 }
 
-console.timeEnd("headTime");
+
+
+// this function checks the location of a file based on which folder level we are
+function checkLinks(links){
+  let updated = {};
+  let checkLevel = header.className.slice(header.className.length - 1);
+
+  for(let x in links){
+    updated[x] = links[x];
+    for(let i = 0; i < checkLevel; i++)
+      updated[x] = "../" + updated[x];
+  }
+  return updated;
+}
