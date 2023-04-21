@@ -1,12 +1,14 @@
+ALTER DATABASE cnam_library CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 DROP TABLE IF EXISTS `book`;
 CREATE TABLE IF NOT EXISTS `book` (
   `IdBook` int NOT NULL AUTO_INCREMENT,
-  `Title` varchar(100) NOT NULL,
+  `Title` varchar(200) NOT NULL,
   `Author` varchar(100) NOT NULL,
   `Genre` varchar(50) NOT NULL,
   `PriceBought` decimal(10,2) NOT NULL,
   `PriceSold` decimal(10,2) NOT NULL,
-  `Summary` varchar(1000) NOT NULL,
+  `Summary` longtext NOT NULL,
   `Quantity` int NOT NULL,
   `Points` int NOT NULL,
   `PublishingHouse` varchar(100) NOT NULL,
@@ -24,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `client` (
   `Email` varchar(100) NOT NULL UNIQUE KEY,
   `Address` varchar(200) NOT NULL,
   `Coins` int NOT NULL,
-  PRIMARY KEY (`Idclient`),
+  PRIMARY KEY (`Idclient`)
 );
 
 DROP TABLE IF EXISTS `buy`;

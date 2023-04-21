@@ -197,7 +197,7 @@ function addSearchLayer(){
       <img src="${icons['search']}"/>
       <input type="text" placeholder="Search..." name="search" required>
     </label>
-    <button type="submit">Enter</button>
+    <button type="submit" name="submit">Enter</button>
   </div>
   <select name="category-search" id="category-search">
     ${selection}
