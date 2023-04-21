@@ -23,7 +23,7 @@ main .search-result {
   border: 1px inset #BDFF00;
   display: flex;
   display: -webkit-flex;
-  flex-flow: row wrap;
+  flex-flow: nowrap wrap;
   justify-content: space-between;
   flex: 1 0 350px;
 }

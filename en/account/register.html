@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap">
 
   <!-- import JavaScript -->
-  <script type="module" src="../js/main.js" defer></script>
-  <script src="../js/form-validation.js"></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/form-validation.js" defer></script>
 </head>
 <body>
   <header id="register" class="level-2"></header>
@@ -24,30 +24,31 @@
   <aside id="menu"></aside>
 
   <main>
-    <form id="login-form" action="" method="post">
+    <form id="login-form" action="" method="post" onsubmit="return validate()">
       <div class="form sign-up">
         <h2 class="aTitle">SIGN UP</h2>
         <section class="take-info">
-          <label>
-            <input type="text" name="fname" pattern="[A-Za-z]{3,}" required>
+
+          <label id="fname-field">
+            <input type="text" name="fname" onchange="checkFname()" required/>
             <span>First Name</span>
           </label>
           <div class="error"></div>
 
-          <label>
-            <input type="text" name="lname" pattern="[A-Za-z]{3,}" required>
+          <label id="lname-field">
+            <input type="text" name="lname" onchange="checkLname()" required/>
             <span>Last Name</span>
           </label>
           <div class="error"></div>
 
           <section class="country-birth">
             <label class="birth">
-              <input type="date" name="birthDate" required>
+              <input type="date" name="birthDate" required/>
               <span>Date of Birth</span>
             </label>
   
             <label class="country">
-              <select size="1" name="country" required>
+              <select name="country">
                 <option value="Lebanon">Lebanon</option>
                 <option value="France">France</option>
                 <option value="USA">USA</option>
@@ -55,44 +56,47 @@
               <span>Country</span>
             </label>
           </section>
-          <div class="error">error</div>
 
           <section class="phone">
-            <select size="1" id="country" name="country number" required onclick="changepattern()">
+            <select id="country" name="country number">
               <option value="Lebanon">(LEB) +961</option>
               <option value="France">(FRA) +33</option>
               <option value="USA">(USA) +1</option>
             </select>
             
             <label>
-              <input type="tel" name="phone" id="phone"  required>
+              <input type="tel" name="phone" id="phone" onblur="checkPhone()" required>
               <span>Phone Number</span>
             </label>
           </section>
-          <div class="error">error</div>
+          <div class="error"></div>
           
-          <label>
+          <label id="email-field">
             <input type="email" name="email" required>
             <span>Email</span>
           </label>
           <div class="error"></div>
 
-          <label>
-            <input id="pass" type="password" name="password" minlength="8" required>
+          <label id="password-field">
+            <input id="pass" type="password" name="password" onchange="PasswordSecurity()" required>
             <span>Password</span>
           </label>
           <div class="error"></div>
 
-          <label>
-            <input id="cpass" type="password" minlength="8" required>
+          <label id="confirm-field">
+            <input id="cpass" type="password" onchange="checkpass()" required>
             <span>Confirm Password</span>
           </label>
           <div class="error"></div>
         </section>
 
         <section class="submit">
-          <button type="submit">REGISTER</button> 
-          <button type="button" onclick="window.open('login.html', '_self')">LOGIN</button>
+          <button type="submit" name="register">REGISTER</button> 
+        </section>
+
+        <section class="other-option">
+          <span>Already have an account? </span>
+          <a class="forgot-pass" href="./login.html">login</a>
         </section>
       </div>
     </form>

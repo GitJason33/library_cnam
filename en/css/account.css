@@ -35,13 +35,23 @@ main {
 .error {
   color: crimson;
   font-weight: bold;
-  font-size: 18px;
   margin: 5px;
   transform: translateY(-8px);
   -o-transform: translateY(-8px);
   -webkit-transform: translateY(-8px);
   -moz-transform: translateY(-8px);
   -ms-transform: translateY(-8px);
+  font-size: 15px;
+}
+@media only screen and (max-width: 300px) {
+  .error {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 500px) {
+  .error {
+    font-size: 18px;
+  }
 }
 
 main #login-form {
@@ -66,6 +76,19 @@ main #login-form h2 {
     font-size: 38px;
   }
 }
+main #login-form .reset-pass h2 {
+  font-size: 42px;
+}
+@media only screen and (max-width: 300px) {
+  main #login-form .reset-pass h2 {
+    font-size: 13vw;
+  }
+}
+@media only screen and (min-width: 500px) {
+  main #login-form .reset-pass h2 {
+    font-size: 50px;
+  }
+}
 main #login-form input, main #login-form button {
   border: none;
   outline: none;
@@ -85,27 +108,17 @@ main #login-form .form {
     padding: 20px;
   }
 }
-main #login-form .form span, main #login-form .form input, main #login-form .form button, main #login-form .form select {
+main #login-form .form span, main #login-form .form input, main #login-form .form button, main #login-form .form select, main #login-form .form a {
   font-size: 15px;
 }
 @media only screen and (max-width: 300px) {
-  main #login-form .form span, main #login-form .form input, main #login-form .form button, main #login-form .form select {
+  main #login-form .form span, main #login-form .form input, main #login-form .form button, main #login-form .form select, main #login-form .form a {
     font-size: 12px;
   }
 }
 @media only screen and (min-width: 500px) {
-  main #login-form .form span, main #login-form .form input, main #login-form .form button, main #login-form .form select {
+  main #login-form .form span, main #login-form .form input, main #login-form .form button, main #login-form .form select, main #login-form .form a {
     font-size: 18px;
-  }
-}
-@media only screen and (min-width: 500px) {
-  main #login-form .sign-in {
-    height: 450px;
-  }
-}
-@media only screen and (min-width: 500px) {
-  main #login-form .sign-up {
-    height: auto;
   }
 }
 main #login-form .take-info label {
@@ -288,9 +301,12 @@ main #login-form .submit button {
 main #login-form .forgot-pass {
   text-align: center;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: bold;
   cursor: pointer;
 }
 main #login-form .forgot-pass:hover {
   text-decoration: underline;
+}
+main #login-form .other-option {
+  text-align: center;
 }/*# sourceMappingURL=account.css.map */

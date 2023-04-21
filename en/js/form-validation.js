@@ -1,14 +1,76 @@
-//check pass confirmation
-function checkpass(){
-  var x = document.getElementById("pass").value;
-  var z = document.getElementById("cpass").value;
-
-  if(z === x) return true;
-  else{
-    alert("Passwords do NOT match!");
-    return false;
-  }
+// for submitting in reset password
+function validateNewPassword(){
+  return PasswordSecurity() && checkpass();
 }
+
+// for submitting in register
+function validate(){
+  return checkFname() && checkLname() && checkPhone && validateNewPassword();
+}
+
+
+
+// phone number check
+function checkPhone() {
+  let select = document.getElementById("country");
+  let phone = document.getElementById("phone").value;
+  let isValid;
+
+  // switch depending on country
+  switch (select.value) {
+    case "France":
+      isValid = /^0[1-9](\d{2}){4}$/.test(phone);
+      break;
+    case "USA":
+      isValid = /^\(?([2-9][0-8][0-9])\)?[-.\s]?([2-9][0-9]{2})[-.\s]?([0-9]{4})$/.test(phone);
+      break;
+    case "Lebanon":
+      isValid = /^((03)|(81)|(70)|(71)|(76)|(78)|(79))\d{6}$/.test(phone);
+      break;
+    default:
+      isValid = false;
+  }
+
+  // add error message
+  if(isValid) 
+    document.querySelector(".phone + .error").innerHTML = "";
+  else 
+    document.querySelector(".phone + .error").innerHTML = "phone number format is incorrect!";
+
+  return isValid;
+}
+
+
+
+// first name check
+function checkFname(){
+  let fname = document.querySelector("#fname-field input").value;
+  let isLetters = /[a-zA-Z]{3,}/.test(fname) && !(/\d/.test(fname));
+
+  if(isLetters) 
+    document.querySelector("#fname-field + .error").innerHTML = "";
+  else 
+    document.querySelector("#fname-field + .error").innerHTML = "first name must be of 3 or more letters!";
+
+  return isLetters;
+}
+
+
+
+// last name check
+function checkLname(){
+  let lname = document.querySelector("#lname-field input").value;
+  let isLetters = /[a-zA-Z]{3,}/.test(lname) && !(/\d/.test(lname));;
+
+  if(isLetters) 
+    document.querySelector("#lname-field + .error").innerHTML = "";
+  else 
+    document.querySelector("#lname-field + .error").innerHTML = "last name must be of 3 or more letters!";
+
+  return isLetters;
+}
+
+
 
 //pass security
 function PasswordSecurity() {
@@ -19,33 +81,28 @@ function PasswordSecurity() {
   var hasSymbol = /[^\w\s]/.test(password);
   var isLengthValid = password.length >= 8;
 
-  //return if password meets the requirements
+  // return if password meets the requirements
   if( hasUppercase && hasLowercase && hasDigit && hasSymbol && isLengthValid){
+    document.querySelector("#password-field + .error").innerHTML = "";
     return true;
   }else{
-    alert("Your password does not meet our requirements!");
+    document.querySelector("#password-field + .error").innerHTML = "Your password does not meet our requirements!";
     return false;
   }
 }
 
-// phone number check
-function changepattern() {
-  var select = document.getElementById("country");
-  var pattern = "";
 
-  // switch depending on country
-  switch (select.value) {
-    case "France":
-      pattern = "^0[1-9](\\d{2}){4}$";
-      break;
-    case "USA":
-      pattern = "^\\(?([2-9][0-8][0-9])\\)?[-.\\s]?([2-9][0-9]{2})[-.\\s]?([0-9]{4})$";
-      break;
-    case "Lebanon":
-      pattern = "^((03)|(81)|(70)|(71)|(76)|(78)|(79))\\d{6}$";
-      break;
-    default:
-      pattern = "";
+
+//check pass confirmation
+function checkpass(){
+  var x = document.getElementById("pass").value;
+  var z = document.getElementById("cpass").value;
+
+  if(z == x) {
+    document.querySelector("#confirm-field + .error").innerHTML = "";
+    return true;
+  }else{
+    document.querySelector("#confirm-field + .error").innerHTML = "passwords do not match!";
+    return false;
   }
-  document.getElementById("phone").setAttribute("pattern", pattern);
 }

@@ -7,9 +7,13 @@ main{
 // error message style
 .error{
   color: crimson;
-  font: { weight:bold; size:18px; }
+  font: { weight:bold; }
   margin: 5px;
   @include transform(translateY(-8px));
+
+  font-size: 15px;
+  @include media($small){ font-size: 12px; }
+  @include media($bigPhone){ font-size: 18px; }
 }
 
 main #login-form{
@@ -24,7 +28,13 @@ main #login-form{
     padding: 30px 0;
     font-size: 50px; 
     @include media($small){ font-size: 38px; }
-  }  
+  }
+  .reset-pass h2{ 
+    font-size: 42px;
+    @include media($small){ font-size: 13vw; }
+    @include media($bigPhone){ font-size: 50px; }
+  }
+
   input, button{
     border: none;
     outline: none;
@@ -41,15 +51,12 @@ main #login-form{
     
     @include media($tablet){ width: 650px; padding: 20px}
 
-    span, input, button, select{
+    span, input, button, select, a{
       font-size: 15px;
-
       @include media($small){ font-size: 12px; }
       @include media($bigPhone){ font-size: 18px; }
     }
   }
-  .sign-in{ @include media($bigPhone){ height: 450px; } }
-  .sign-up{ @include media($bigPhone){ height: auto; } }
 
   .take-info{
     label{ 
@@ -201,9 +208,9 @@ main #login-form{
   }
   .forgot-pass{
     text-align: center;
-    font: { size: 14px; weight: 600; }
+    font: { size: 14px; weight: bold; }
     cursor: pointer;
+    &:hover{ text-decoration: underline; }
   }
-
-  .forgot-pass:hover{ text-decoration: underline; }
+  .other-option{ text-align: center; }
 }

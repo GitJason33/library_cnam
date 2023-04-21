@@ -19,7 +19,7 @@ main .search-result{
   border-radius: $radius;
   border: bord(1px, $mainCol);
 
-  @include flex;
+  @include flex(nowrap);
   justify-content: space-between;
   flex: 1 0 350px;
   @include media("max-width: 383px"){ flex-basis: 200px; }

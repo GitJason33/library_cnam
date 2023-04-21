@@ -38,15 +38,18 @@
             <span>Password</span>
           </label>
 
-          <!-- 1 error message is enough here -->
-          <div class="error">error</div>
+          <!-- this error should appear when the provided infos aren't inside the database -->
+          <div class="error">Incorrect email or password!</div>
         </section>
-        <span class="forgot-pass">Forgot Password?</span>
+        <a href="./reset-password.html" class="forgot-pass">Forgot Password?</a>
         
         <section class="submit">
-          <button type="button" onclick="window.open('register.html', '_self')">REGISTER</button>
-          
-          <button type="submit">LOGIN</button>
+          <button type="submit" name="login">LOGIN</button>
+        </section>
+
+        <section class="other-option">
+          <span>Don't have an account? </span>
+          <a class="forgot-pass" href="./register.html">register</a>
         </section>
       </div>
     </form>
