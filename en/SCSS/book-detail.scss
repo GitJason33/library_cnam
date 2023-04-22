@@ -1,2 +1,99 @@
 @import "./helpers/vars", "./helpers/vendors";
 
+main{
+  background-color: $dark;
+  background-image: url(../../media/images/bg/bg-wavy.svg);
+  background-size: contain;
+}
+main .container{
+  background-color: $extraCol;
+  color: $dark;
+  border: bord($c: $mainCol);
+  border-radius: $radius;
+  padding: $pad;
+
+  #up{ 
+    display: block;
+    @include media($tablet){ @include flex(row, nowrap); }
+  }
+
+  #book-title{ 
+    width: 100%;
+    text-transform: capitalize;
+    @include responsive-size(10vw, 45px, 55px, 30px);
+
+    margin: { top:0; bottom:10px; } 
+    padding: 15px 0;
+    border-bottom: bord(4px, $mainCol);
+  }
+
+  #book-cover{
+    width: 100%;
+    text-align: center;
+    padding-bottom: $pad;
+
+    @include media($tablet){
+      width: fit-content;
+      padding: 0 $pad $pad 0;
+    }
+    img{ 
+      border: bord();
+      border-radius: $radius;
+
+      @include dimensions(265px,370px); 
+      @include media($small){ @include dimensions(100%); }
+    }//
+  }
+  #book-infos{
+    li{ 
+      list-style-type: none;
+      padding-bottom: $pad;
+      &:last-child{ 
+        font-weight: bold; 
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      }
+    } b{ text-decoration: underline; }
+
+    #form-fav{
+      padding-bottom: $pad;
+
+      button{ all: unset; }
+      button svg{ position:relative;  top:3px; }
+
+      &:hover{ text-decoration: underline; }
+      button, label{ cursor: pointer; }
+    }
+  }
+
+  #book-preferences{
+    width: 100%;
+    span{ font-weight: bolder; }
+    input{
+      border: bord();
+      border-radius: $radius;
+      padding: $pad $pad/2;
+    }
+    button{
+      display: block;
+      background-color: $dark;
+      color: $mainCol;
+      font: { weight:500; } 
+      padding: $pad;
+      text-transform: uppercase;
+      width: 100%;
+
+      border: bord();
+      border-radius: $radius;
+      cursor: pointer;
+      margin-top: $pad;
+
+      @include media($tablet){
+        width: 600px;
+        margin: $pad auto 0;
+      }
+    }
+  }
+  li, span, input, label, p, button{
+    @include responsive-size(12px, 19px, 21px, 16px);
+  }
+}

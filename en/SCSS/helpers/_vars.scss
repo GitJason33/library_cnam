@@ -36,3 +36,9 @@ $huge: "min-width: 1800px";
   top: $top; 
   left: $left; 
 }
+@mixin responsive-size($sm, $mid, $big, $def: $sm){
+  font-size: $def;
+  @include media($small){ font-size: $sm; }
+  @include media($bigPhone){ font-size: $mid; }
+  @include media($laptop){ font-size: $big; }
+}

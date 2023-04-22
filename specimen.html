@@ -1,0 +1,94 @@
+<!-- NOTE: this specimen file is not an official page in the project, it's just a design tester and container -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>CNAM Library</title>
+
+  <!-- import css -->
+  <link rel='stylesheet' href='./en/css/main.css'/>
+  <link rel='stylesheet' href='./en/css/book-detail.css'>
+
+  <!-- import JavaScript -->
+  <script type='module' src='./en/js/main.js' defer></script>
+</head>
+<body>
+  <header id='speci' class='level-0'></header>
+  <nav id='navBar'></nav>
+  <form id='searchLayer'></form>
+  <aside id='menu'></aside>
+
+  <main>
+    <h1 class='aTitle'>Specimen tester</h1>
+
+    <div class='container'>
+      <h1 id='book-title' class='aTitle'>Dog Man 11: Twenty Thousand Fleas Under the Sea</h1>
+
+      <article id="up">
+        <section id='book-cover'>
+          <img src='./media/books/100.webp' alt='book-cover'/>
+        </section>
+  
+        <section id='book-infos'>
+          <li><b>ID</b>: 100</li>
+          <li><b>Author</b>: Pilkey, Dav; Pilkey, Dav</li>
+          <li><b>Genre</b>: Comics</li>
+          <li><b>Rating</b>: 0/10</li>
+          <li><b>Publisher</b>: Graphix</li>
+          <li><b>Price</b>: 17.00 $</li>
+
+          <form method='post' id="form-fav">
+            <label>Add to favorites </label>
+  
+            <button type='button' name='addfav' onclick="changeColor()">
+              <svg width='23px' height='23px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                
+                <!-- to change border color, change the stroke value, for the background, change the fill (to red when user favors it) -->
+                <path d='M12.62 20.81C12.28 20.93 11.72 20.93 11.38 20.81C8.48 19.82 2 15.69 2 8.68998C2 5.59998 4.49 3.09998 7.56 3.09998C9.38 3.09998 10.99 3.97998 12 5.33998C13.01 3.97998 14.63 3.09998 16.44 3.09998C19.51 3.09998 22 5.59998 22 8.68998C22 15.69 15.52 19.82 12.62 20.81Z' stroke='#005257' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/>
+              </svg>
+            </button>
+
+            <!-- this is a simple js code to toggle the heart color -->
+            <script>
+              const changeColor = () =>{
+                let svgg = document.querySelector("#form-fav svg path");
+                let strokee = svgg.getAttribute('stroke');
+                let filll = svgg.getAttribute('fill');
+
+                if(strokee == "#005257" && filll == "none"){
+                  svgg.setAttribute('stroke', 'none');
+                  svgg.setAttribute('fill', 'crimson');
+                }else{
+                  svgg.setAttribute('stroke', '#005257');
+                  svgg.setAttribute('fill', 'none');
+                }
+              }
+            </script>
+          </form>
+
+          <li style="color: rgb(19, 204, 19);">In Stock</li>
+        </section>
+      </article>
+
+      <section id="book-preferences">
+        <p>Piggy has returned, and his newest plot is his most diabolical yet. WHAT other new villains are on the horizon? WHERE are they all coming from? And WHO will step forward to save the city when scoundrels sabotage our Supa Buddies?</p>
+
+        <form action='add-cart.php' method='post' id="form-cart">
+          <label>
+            <!-- maximum should change depending on the db, and button submit becomes disabled if its out of stock -->
+            <span>Quantity: </span>
+            <input type='number' class='quantity' min="1" max="5" maxlength="4" required/>
+          </label>
+
+          <button type='submit' name='addcart'>Add to cart</button>
+        </form>
+      </section>
+    </div>
+  </main>
+  
+  <footer></footer>
+</body>
+</html>

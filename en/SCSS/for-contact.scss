@@ -12,10 +12,7 @@ main{
     border-radius: $radius;
 
     // font-size update with different width
-    font-size: 1rem; // default
-    @include media($small){ font-size: 12px; }
-    @include media($bigPhone){ font-size: 18px; }
-    @include media($laptop){ font-size: 20px; }
+    @include responsive-size(12px, 18px, 20px, 16px);
   }
   input{
     width: 100%;

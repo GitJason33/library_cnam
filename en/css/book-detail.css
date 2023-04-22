@@ -1,1 +1,146 @@
-/*# sourceMappingURL=book-detail.css.map */
+main {
+  background-color: #005257;
+  background-image: url(../../media/images/bg/bg-wavy.svg);
+  background-size: contain;
+}
+
+main .container {
+  background-color: #ABB981;
+  color: #005257;
+  border: 2px inset #BDFF00;
+  border-radius: 7px;
+  padding: 7px;
+}
+main .container #up {
+  display: block;
+}
+@media only screen and (min-width: 768px) {
+  main .container #up {
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: row nowrap;
+  }
+}
+main .container #book-title {
+  width: 100%;
+  text-transform: capitalize;
+  font-size: 30px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding: 15px 0;
+  border-bottom: 4px inset #BDFF00;
+}
+@media only screen and (max-width: 300px) {
+  main .container #book-title {
+    font-size: 10vw;
+  }
+}
+@media only screen and (min-width: 500px) {
+  main .container #book-title {
+    font-size: 45px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  main .container #book-title {
+    font-size: 55px;
+  }
+}
+main .container #book-cover {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 7px;
+}
+@media only screen and (min-width: 768px) {
+  main .container #book-cover {
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 0 7px 7px 0;
+  }
+}
+main .container #book-cover img {
+  border: 2px inset #005257;
+  border-radius: 7px;
+  width: 265px;
+  height: 370px;
+}
+@media only screen and (max-width: 300px) {
+  main .container #book-cover img {
+    width: 100%;
+    height: auto;
+  }
+}
+main .container #book-infos li {
+  list-style-type: none;
+  padding-bottom: 7px;
+}
+main .container #book-infos li:last-child {
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+main .container #book-infos b {
+  text-decoration: underline;
+}
+main .container #book-infos #form-fav {
+  padding-bottom: 7px;
+}
+main .container #book-infos #form-fav button {
+  all: unset;
+}
+main .container #book-infos #form-fav button svg {
+  position: relative;
+  top: 3px;
+}
+main .container #book-infos #form-fav:hover {
+  text-decoration: underline;
+}
+main .container #book-infos #form-fav button, main .container #book-infos #form-fav label {
+  cursor: pointer;
+}
+main .container #book-preferences {
+  width: 100%;
+}
+main .container #book-preferences span {
+  font-weight: bolder;
+}
+main .container #book-preferences input {
+  border: 2px inset #005257;
+  border-radius: 7px;
+  padding: 7px 3.5px;
+}
+main .container #book-preferences button {
+  display: block;
+  background-color: #005257;
+  color: #BDFF00;
+  font-weight: 500;
+  padding: 7px;
+  text-transform: uppercase;
+  width: 100%;
+  border: 2px inset #005257;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-top: 7px;
+}
+@media only screen and (min-width: 768px) {
+  main .container #book-preferences button {
+    width: 600px;
+    margin: 7px auto 0;
+  }
+}
+main .container li, main .container span, main .container input, main .container label, main .container p, main .container button {
+  font-size: 16px;
+}
+@media only screen and (max-width: 300px) {
+  main .container li, main .container span, main .container input, main .container label, main .container p, main .container button {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 500px) {
+  main .container li, main .container span, main .container input, main .container label, main .container p, main .container button {
+    font-size: 19px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  main .container li, main .container span, main .container input, main .container label, main .container p, main .container button {
+    font-size: 21px;
+  }
+}/*# sourceMappingURL=book-detail.css.map */
