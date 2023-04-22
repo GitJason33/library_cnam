@@ -1,4 +1,4 @@
-@import "vars", "vendors";
+@import "./helpers/vars", "./helpers/vendors";
 
 main{ 
   padding: $pad 0; 

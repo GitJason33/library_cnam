@@ -1,4 +1,4 @@
-@import "config";
+@import "./helpers/config";
 
 // common styling of main content container
 main{
@@ -311,4 +311,4 @@ footer{
 // --------------- FOOTER END -------------------
 
 // add responsiveness to the page
-@import 'responsive-main';
+@import './helpers/responsive-main';
