@@ -18,7 +18,11 @@ function afficherLivres($query){
             $publishingHouse = $row[9];
 
             $inStock = "In Stock";
-            if($quantity == 0) {$inStock = "Out Of Stock";}
+            $color = "green";
+            if($quantity == 0) {
+                $inStock = "Out Of Stock";
+                $color = "crimson";
+            }
             echo("
             <fieldset class='search-result'>
                 <legend id='result-title'>$title</legend>
@@ -29,12 +33,12 @@ function afficherLivres($query){
                 </section>
 
                 <section class='result-infos'>
-                    <span>Genre: $genre</span>
-                    <span>Author: $author</span>
-                    <span>PH: $publishingHouse</span>
-                    <span>$priceSold USD</span>
-                    <span>Qty: $quantity</span>
-                    <span>$inStock</span>
+                    <li>Genre: $genre</li>
+                    <li>Author: $author</li>
+                    <li>PH: $publishingHouse</li>
+                    <li>$priceSold USD</li>
+                    <li>Qty: $quantity</li>
+                    <li style='color:$color;'>$inStock</li>
                 </section>
                 </div>
                 

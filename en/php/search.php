@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
 
   <!-- import css -->
   <link rel="stylesheet" href="../css/main.css"/>
-  <link rel="stylesheet" href="../css/speci.css">
+  <link rel="stylesheet" href="../css/search-res.css">
 
   <!-- import JavaScript -->
   <script type="module" src="../js/main.js" defer></script>

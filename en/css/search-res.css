@@ -21,11 +21,12 @@ main .search-result {
   margin-bottom: 7px;
   border-radius: 7px;
   border: 1px inset #BDFF00;
+  position: relative;
   display: flex;
   display: -webkit-flex;
-  flex-flow: nowrap wrap;
-  justify-content: space-between;
-  flex: 1 0 350px;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  flex: 1 350px;
 }
 @media only screen and (max-width: 383px) {
   main .search-result {
@@ -34,16 +35,6 @@ main .search-result {
 }
 @media only screen and (max-width: 300px) {
   main .search-result {
-    display: block;
-  }
-}
-main .search-result .left {
-  display: flex;
-  display: -webkit-flex;
-  flex-flow: row wrap;
-}
-@media only screen and (max-width: 300px) {
-  main .search-result .left {
     display: block;
   }
 }
@@ -57,6 +48,7 @@ main .search-result #result-title {
   padding: 7px;
 }
 main .search-result .result-img {
+  flex-shrink: 0;
   width: 120px;
   height: 170px;
 }
@@ -81,17 +73,25 @@ main .search-result .result-infos {
   padding-left: 7px;
   font-weight: bold;
   font-size: 15px;
+  flex-grow: 1;
+}
+main .search-result .result-infos li:not(li:last-child) {
+  margin-bottom: 4px;
+}
+@media only screen and (max-width: 300px) {
+  main .search-result .result-infos li:last-child {
+    padding-bottom: 28px;
+  }
 }
 main .search-result .result-details {
-  display: flex;
-  display: -webkit-flex;
-  flex-flow: row wrap;
-  align-items: flex-end;
-  justify-content: flex-end;
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
 }
 main .search-result .result-details a {
-  padding: 7px;
+  padding-left: 7px;
+  padding-top: 7px;
 }
 main .search-result .result-details a:hover {
   text-decoration: underline;
-}/*# sourceMappingURL=speci.css.map */
+}/*# sourceMappingURL=search-res.css.map */
