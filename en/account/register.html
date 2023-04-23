@@ -30,13 +30,13 @@
         <section class="take-info">
 
           <label id="fname-field">
-            <input type="text" name="fname" onchange="checkFname()" required/>
+            <input type="text" name="fname" onkeydown="checkFname(event)" required/>
             <span>First Name</span>
           </label>
           <div class="error"></div>
 
           <label id="lname-field">
-            <input type="text" name="lname" onchange="checkLname()" required/>
+            <input type="text" name="lname" onkeydown="checkLname(event)" required/>
             <span>Last Name</span>
           </label>
           <div class="error"></div>
@@ -65,7 +65,7 @@
             </select>
             
             <label>
-              <input type="tel" name="phone" id="phone" onblur="checkPhone()" required>
+              <input type="tel" name="phone" id="phone" onkeydown="checkPhone(event)" required>
               <span>Phone Number</span>
             </label>
           </section>
@@ -78,13 +78,13 @@
           <div class="error"></div>
 
           <label id="password-field">
-            <input id="pass" type="password" name="password" onchange="PasswordSecurity()" required>
+            <input id="pass" type="password" name="password" onkeydown="PasswordSecurity(event)" required>
             <span>Password</span>
           </label>
           <div class="error"></div>
 
           <label id="confirm-field">
-            <input id="cpass" type="password" onchange="checkpass()" required>
+            <input id="cpass" type="password" onkeydown="checkpass(event)" required>
             <span>Confirm Password</span>
           </label>
           <div class="error"></div>

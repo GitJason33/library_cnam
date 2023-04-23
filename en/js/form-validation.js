@@ -11,7 +11,9 @@ function validate(){
 
 
 // phone number check
-function checkPhone() {
+function checkPhone(event) {
+  if(!checkKeyPress(event)) return;
+  
   let select = document.getElementById("country");
   let phone = document.getElementById("phone").value;
   let isValid;
@@ -43,7 +45,9 @@ function checkPhone() {
 
 
 // first name check
-function checkFname(){
+function checkFname(event) {
+  if(!checkKeyPress(event)) return;
+
   let fname = document.querySelector("#fname-field input").value;
   let isLetters = /[a-zA-Z]{3,}/.test(fname) && !(/\d/.test(fname));
 
@@ -58,7 +62,9 @@ function checkFname(){
 
 
 // last name check
-function checkLname(){
+function checkLname(event) {
+  if(!checkKeyPress(event)) return;
+
   let lname = document.querySelector("#lname-field input").value;
   let isLetters = /[a-zA-Z]{3,}/.test(lname) && !(/\d/.test(lname));;
 
@@ -73,7 +79,9 @@ function checkLname(){
 
 
 //pass security
-function PasswordSecurity() {
+function PasswordSecurity(event) {
+  if(!checkKeyPress(event)) return;
+
   var password = document.getElementById("pass").value;
   var hasUppercase = /[A-Z]/.test(password);
   var hasLowercase = /[a-z]/.test(password);
@@ -94,7 +102,9 @@ function PasswordSecurity() {
 
 
 //check pass confirmation
-function checkpass(){
+function checkpass(event) {
+  if(!checkKeyPress(event)) return;
+  
   var x = document.getElementById("pass").value;
   var z = document.getElementById("cpass").value;
 
@@ -104,5 +114,17 @@ function checkpass(){
   }else{
     document.querySelector("#confirm-field + .error").innerHTML = "passwords do not match!";
     return false;
+  }
+}
+
+
+
+// listen to keyboard presses, not to give errors when we touch the arrows
+function checkKeyPress(event){
+  switch(event.key){
+    case "ArrowUp": case "ArrowDown": 
+    case "ArrowLeft": case "ArrowRight": 
+      return false;
+    default: return true;
   }
 }

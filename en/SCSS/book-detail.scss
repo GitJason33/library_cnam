@@ -59,14 +59,19 @@ main .container{
 
       button{ all: unset; }
       button svg{ position:relative;  top:3px; }
-
-      &:hover{ text-decoration: underline; }
       button, label{ cursor: pointer; }
     }
   }
 
   #book-preferences{
     width: 100%;
+    border-bottom: bord(4px, $mainCol);
+    padding-bottom: $pad;
+    margin-bottom: $pad;
+    
+    #form-cart{
+      @include media($tablet){ @include flex(row, nowrap); }
+    }
     span{ font-weight: bolder; }
     input{
       border: bord();
@@ -80,6 +85,7 @@ main .container{
       font: { weight:500; } 
       padding: $pad;
       text-transform: uppercase;
+      flex-grow: 1;
       width: 100%;
 
       border: bord();
@@ -88,12 +94,33 @@ main .container{
       margin-top: $pad;
 
       @include media($tablet){
-        width: 600px;
-        margin: $pad auto 0;
+        width: fit-content;
+        flex-grow: 1;
+        margin: { left: $pad; top: 0; }
       }
-    }
+    }//
   }
   li, span, input, label, p, button{
     @include responsive-size(12px, 19px, 21px, 16px);
+  }
+
+  // like and dislike buttons ----------------
+  #form-rate{
+    padding-bottom: $pad;
+    button{
+      all: unset;
+      cursor: pointer;
+      border-right: bord();
+      padding: $pad;
+      &:last-child{ border-right: none; }
+      &:first-child{ padding-left: 0; }
+    }
+    svg{ position: relative; top: 2px; }
+  }
+
+
+  // comment section --------------------------
+  #comments{
+    
   }
 }
