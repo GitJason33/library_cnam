@@ -74,6 +74,7 @@ main .container{
     }
     span{ font-weight: bolder; }
     input{
+      background-color: $light;
       border: bord();
       border-radius: $radius;
       padding: $pad $pad/2;
@@ -121,6 +122,50 @@ main .container{
 
   // comment section --------------------------
   #comments{
-    
+    #comment-text{ 
+      background-color: $light;
+      width: 100%;
+      font: { family: $fontText; size: 15px; }
+      padding: $pad;
+      border-radius: $radius;
+      border: bord(1px); 
+      padding-right: $pad + 24px;
+      resize: vertical;
+
+      &:focus{ 
+        outline: bord(1px);
+        box-shadow: 0px 0px 4px 2px $mainCol;
+      }
+    }
+    #form-comment{ position: relative; }
+    #comment-sub{
+      all: unset;
+      cursor: pointer;
+      position: absolute;
+      top: $pad;
+      right: $pad;
+    }
+
+    .aComment{
+      position: relative;
+      b{ 
+        font-size: 14px;
+        background-color: $extraCol;
+        position: absolute;
+        top: -$pad;
+        left: $pad;
+        @include media($laptop){ top: -$pad *1.5; }
+
+        span{ color: crimson; font-size: 14px; }
+      }
+      p{
+        border: bord();
+        border-radius: $radius/2 $radius*3;
+        padding: $pad;
+        padding-top: $pad*3;
+      }
+      
+    }
+    //
   }
 }

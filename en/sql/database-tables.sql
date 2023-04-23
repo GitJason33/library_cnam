@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS `book` (
   PRIMARY KEY (`IdBook`)
 );
 
+
 DROP TABLE IF EXISTS `person`;
 CREATE TABLE IF NOT EXISTS `person` (
   `FirstName` varchar(50) NOT NULL,
@@ -27,12 +28,14 @@ CREATE TABLE IF NOT EXISTS `person` (
   PRIMARY KEY (`Email`)
 );
 
+
 DROP TABLE IF EXISTS `supplier`;
 CREATE TABLE IF NOT EXISTS `supplier` (
   `Email` varchar(20) NOT NULL PRIMARY KEY,
   `CompanyName` varchar(100) NOT NULL,
    FOREIGN KEY (`Email`) REFERENCES `person`(`Email`) ON DELETE CASCADE
 );
+
 
 DROP TABLE IF EXISTS `client`;
 CREATE TABLE IF NOT EXISTS `client` (
@@ -55,6 +58,7 @@ CREATE TABLE IF NOT EXISTS `buy` (
   PRIMARY KEY (`Email`,`IdBook`)
 );
 
+
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE IF NOT EXISTS `comment` (
   `Email` int NOT NULL,
@@ -66,6 +70,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   PRIMARY KEY (`Email`,`IdBook`)
 );
 
+
 DROP TABLE IF EXISTS `supply`;
 CREATE TABLE IF NOT EXISTS `supply` (
   `Email` int NOT NULL,
@@ -76,6 +81,7 @@ CREATE TABLE IF NOT EXISTS `supply` (
   FOREIGN KEY (`Email`) REFERENCES `person`(`Email`) ON DELETE CASCADE,
   FOREIGN KEY (`BookId`) REFERENCES `book`(`BookId`) ON DELETE CASCADE
 );
+
 
 DROP TABLE IF EXISTS `borrow`;
 CREATE TABLE IF NOT EXISTS `borrow` (

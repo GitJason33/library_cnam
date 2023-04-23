@@ -96,10 +96,23 @@
       </section>
       
       <section id="comments">
+        <form action="" id="form-comment">
+          <textarea name="comment" id="comment-text" placeholder="Leave a comment" maxlength="400" rows="3" required></textarea>
 
+          <button type="submit" name="addComment" id="comment-sub" title="add comment" >
+            <img src="./media/images/icons/send.svg" alt="send">
+          </button>
+        </form>
+
+        <div class="aComment">
+          <!-- last name only with the first letter -->
+          <b>Comment by <span>%fullname%</span></b>
+          <p>
+            hi this book is terrible, fuck you
+          </p>
+        </div>
       </section>
     </div>
-    
   </main>
   
   <footer></footer>

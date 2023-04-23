@@ -110,6 +110,7 @@ main .container #book-preferences span {
   font-weight: bolder;
 }
 main .container #book-preferences input {
+  background-color: #ECF5CE;
   border: 2px inset #005257;
   border-radius: 7px;
   padding: 7px 3.5px;
@@ -173,4 +174,54 @@ main .container #form-rate button:first-child {
 main .container #form-rate svg {
   position: relative;
   top: 2px;
+}
+main .container #comments #comment-text {
+  background-color: #ECF5CE;
+  width: 100%;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  padding: 7px;
+  border-radius: 7px;
+  border: 1px inset #005257;
+  padding-right: 31px;
+  resize: vertical;
+}
+main .container #comments #comment-text:focus {
+  outline: 1px inset #005257;
+  box-shadow: 0px 0px 4px 2px #BDFF00;
+}
+main .container #comments #form-comment {
+  position: relative;
+}
+main .container #comments #comment-sub {
+  all: unset;
+  cursor: pointer;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+}
+main .container #comments .aComment {
+  position: relative;
+}
+main .container #comments .aComment b {
+  font-size: 14px;
+  background-color: #ABB981;
+  position: absolute;
+  top: -7px;
+  left: 7px;
+}
+@media only screen and (min-width: 992px) {
+  main .container #comments .aComment b {
+    top: -10.5px;
+  }
+}
+main .container #comments .aComment b span {
+  color: crimson;
+  font-size: 14px;
+}
+main .container #comments .aComment p {
+  border: 2px inset #005257;
+  border-radius: 3.5px 21px;
+  padding: 7px;
+  padding-top: 21px;
 }/*# sourceMappingURL=book-detail.css.map */
