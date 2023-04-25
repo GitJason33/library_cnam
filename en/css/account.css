@@ -1,32 +1,3 @@
-* {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-
-::-moz-selection {
-  background: #005257;
-  color: #BDFF00;
-}
-
-::selection {
-  background: #005257;
-  color: #BDFF00;
-}
-
-body {
-  overflow-x: hidden;
-  color: #005257;
-  background-color: #ECF5CE;
-  margin: 0;
-  font-family: Helvetica, Arial, sans-serif;
-}
-
-a {
-  text-decoration: none;
-  color: unset;
-}
-
 main {
   color: #005257;
   background-image: url(../../media/images/bg/bg-animated-shapes.svg);
