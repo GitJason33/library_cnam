@@ -24,7 +24,7 @@
   <aside id="menu"></aside>
 
   <main>
-    <form id="login-form" action="" method="post" onsubmit="return validate()">
+    <form id="login-form" action="./../php/account.php" method="post" onsubmit="return validate()">
       <div class="form sign-up">
         <h2 class="aTitle">SIGN UP</h2>
         <section class="take-info">
@@ -56,9 +56,14 @@
               <span>Country</span>
             </label>
           </section>
+          
+          <label class="address">
+            <input type="text" name="address" required/>
+            <span>Address</span>
+          </label>
 
           <section class="phone">
-            <select id="country" name="country number">
+            <select id="country" name="country_number">
               <option value="Lebanon">(LEB) +961</option>
               <option value="France">(FRA) +33</option>
               <option value="USA">(USA) +1</option>

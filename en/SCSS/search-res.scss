@@ -1,4 +1,4 @@
-@import "./helpers/vars", "./helpers/vendors";
+@import "./helpers/import";
 
 .container{ 
   @include flex(); 

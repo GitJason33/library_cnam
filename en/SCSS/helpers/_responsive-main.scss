@@ -1,4 +1,4 @@
-@import "vendors", "vars";
+@import "import";
 
 // small phones
 @include media($small){
