@@ -55,7 +55,7 @@
 
           <!-- manipulate colors thru stroke and fill attributes in svg, use rgb(19, 204, 19) as green, crimson as red -->
           <form action="like-dislike.php" id="form-rate">
-            <button type="button" id="like" name="like" onclick="giveLike()">
+            <button type="button" class="like" name="like" onclick="giveLike(this)">
               <span>Like</span>
               <svg width="24px" height="24px" viewBox="0 0 24 24">
                 <g id="Complete">
@@ -66,7 +66,7 @@
               </svg>
             </button>
 
-            <button type="button" id="dislike" name="dislike" onclick="giveDislike()">
+            <button type="button" class="dislike" name="dislike" onclick="giveDislike(this)">
               <span>Dislike</span>
               <svg width="24px" height="24px" viewBox="0 0 24 24">
                 <g id="Complete"><g id="thumbs-down">
@@ -110,6 +110,28 @@
           <p>
             hi this book is terrible, fuck you
           </p>
+          <form action="like-dislike.php" id="comment-rate">
+            <button type="button" class="like" name="like-comment" onclick="giveLike(this)">
+              <svg width="20px" height="20px" viewBox="0 0 24 24">
+                <g id="Complete">
+                  <g id="thumbs-up">
+                    <path d="M7.3,11.4,10.1,3a.6.6,0,0,1,.8-.3l1,.5a2.6,2.6,0,0,1,1.4,2.3V9.4h6.4a2,2,0,0,1,1.9,2.5l-2,8a2,2,0,0,1-1.9,1.5H4.3a2,2,0,0,1-2-2v-6a2,2,0,0,1,2-2h3v10" fill="none" stroke="#005257" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                  </g>
+                </g>
+              </svg>
+            </button>
+            <strong>0</strong>
+
+            <button type="button" class="dislike" name="dislike-comment" onclick="giveDislike(this)">
+              <svg width="20px" height="20px" viewBox="0 0 24 24">
+                <g id="Complete"><g id="thumbs-down">
+
+                  <path d="M7.3,12.6,10.1,21a.6.6,0,0,0,.8.3l1-.5a2.6,2.6,0,0,0,1.4-2.3V14.6h6.4a2,2,0,0,0,1.9-2.5l-2-8a2,2,0,0,0-1.9-1.5H4.3a2,2,0,0,0-2,2v6a2,2,0,0,0,2,2h3V2.6" fill="none" stroke="#005257" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                </g></g>
+              </svg>
+            </button>
+            <strong>0</strong>
+          </form>
         </div>
       </section>
     </div>

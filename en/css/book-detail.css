@@ -156,22 +156,22 @@ main .container li, main .container span, main .container input, main .container
     font-size: 21px;
   }
 }
-main .container #form-rate {
+main .container #form-rate, main .container #comment-rate {
   padding-bottom: 7px;
 }
-main .container #form-rate button {
+main .container #form-rate button, main .container #comment-rate button {
   all: unset;
   cursor: pointer;
   border-right: 2px inset #005257;
   padding: 7px;
 }
-main .container #form-rate button:last-child {
+main .container #form-rate button:last-child, main .container #comment-rate button:last-child {
   border-right: none;
 }
-main .container #form-rate button:first-child {
+main .container #form-rate button:first-child, main .container #comment-rate button:first-child {
   padding-left: 0;
 }
-main .container #form-rate svg {
+main .container #form-rate svg, main .container #comment-rate svg {
   position: relative;
   top: 2px;
 }
@@ -209,19 +209,57 @@ main .container #comments .aComment b {
   position: absolute;
   top: -7px;
   left: 7px;
+  padding: 0 3px;
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 300px) {
   main .container #comments .aComment b {
-    top: -10.5px;
+    font-size: 11px;
   }
 }
 main .container #comments .aComment b span {
   color: crimson;
   font-size: 14px;
 }
+@media only screen and (max-width: 300px) {
+  main .container #comments .aComment b span {
+    font-size: 11px;
+  }
+}
 main .container #comments .aComment p {
   border: 2px inset #005257;
   border-radius: 3.5px 21px;
-  padding: 7px;
-  padding-top: 21px;
+  padding: 21px 7px;
+}
+main .container #comments #comment-rate {
+  background-color: #ABB981;
+  position: absolute;
+  padding: 0 3px;
+  bottom: -7px;
+  left: 21px;
+}
+main .container #comments #comment-rate button {
+  border: none;
+  padding: 0;
+}
+main .container #comments #comment-rate strong {
+  padding-right: 7px;
+  font-size: 14px;
+}
+@media only screen and (max-width: 300px) {
+  main .container #comments #comment-rate strong {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 500px) {
+  main .container #comments #comment-rate strong {
+    font-size: 14px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  main .container #comments #comment-rate strong {
+    font-size: 14px;
+  }
+}
+main .container #comments #comment-rate strong:last-child {
+  padding: 0;
 }/*# sourceMappingURL=book-detail.css.map */

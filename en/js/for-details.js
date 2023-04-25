@@ -15,9 +15,12 @@ const addFavorite = () =>{
 }
 
 
-const giveLike = () => {
-  let icon = document.querySelector("#like svg path");
-  let icon2 = document.querySelector("#dislike svg path");
+const giveLike = (th) => {
+  // .like -> svg -> path
+  let icon = th.querySelector("svg path"); 
+
+  // parent of .like -> .dislike -> svg -> path
+  let icon2 = th.parentElement.querySelector(".dislike svg path");
 
   // add the green effect or remove it
   if(icon.getAttribute('fill') == 'none' && icon.getAttribute('stroke-width') == 1.5){
@@ -36,10 +39,13 @@ const giveLike = () => {
   icon2.setAttribute('stroke', '#005257');  
 }
 
-const giveDislike = () => {
-  let icon = document.querySelector("#dislike svg path");
-  let icon2 = document.querySelector("#like svg path");
+const giveDislike = (th) => {
+  // .dislike -> svg -> path
+  let icon = th.querySelector("svg path");
 
+  // parent of .dislike -> .like -> svg -> path
+  let icon2 = th.parentElement.querySelector(".like svg path"); 
+  
   // add the green effect or remove it
   if(icon.getAttribute('fill') == 'none' && icon.getAttribute('stroke-width') == '1.5'){
     icon.setAttribute('fill', 'crimson');
