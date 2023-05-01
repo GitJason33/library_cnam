@@ -1,0 +1,142 @@
+<!-- NOTE: this specimen file is not an official page in the project, it's just a design tester and container -->
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>CNAM Library</title>
+
+  <!-- import css -->
+  <link rel='stylesheet' href='./en/css/main.css'/>
+  <link rel='stylesheet' href='./en/css/book-detail.css'>
+
+  <!-- import JavaScript -->
+  <script src='./en/js/main.js' defer></script>
+  <script src='./en/js/for-details.js' defer></script>
+</head>
+<body>
+  <header id='speci' class='level-0'></header>
+  <nav id='navBar'></nav>
+  <form id='searchLayer'></form>
+  <aside id='menu'></aside>
+
+  <main>
+    <h1 class='aTitle'>Specimen tester</h1>
+
+    <div class='container'>
+      <h1 id='book-title' class='aTitle'>Dog Man 11: Twenty Thousand Fleas Under the Sea</h1>
+
+      <article id='up'>
+        <section id='book-cover'>
+          <img src='./media/books/100.webp' alt='book-cover'/>
+        </section>
+  
+        <section id='book-infos'>
+          <li><b>ID</b>: 100</li>
+          <li><b>Author</b>: Pilkey, Dav; Pilkey, Dav</li>
+          <li><b>Genre</b>: Comics</li>
+          <li><b>Rating</b>: 10/10</li>
+          <li><b>Publisher</b>: Graphix</li>
+          <li><b>Price</b>: 17.00 $</li>
+
+          <form method='post' id='form-fav'>
+            <label>Add to favorites </label>
+  
+            <button type='button' name='addfav' onclick='addFavorite()'>
+              <svg width='24px' height='24px' viewBox='0 0 24 24' fill='none'>
+                
+                <!-- to change border color, change the stroke value, for the background, change the fill (to red when user favors it) -->
+                <path d='M12.62 20.81C12.28 20.93 11.72 20.93 11.38 20.81C8.48 19.82 2 15.69 2 8.68998C2 5.59998 4.49 3.09998 7.56 3.09998C9.38 3.09998 10.99 3.97998 12 5.33998C13.01 3.97998 14.63 3.09998 16.44 3.09998C19.51 3.09998 22 5.59998 22 8.68998C22 15.69 15.52 19.82 12.62 20.81Z' stroke='#005257' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/>
+              </svg>
+            </button>
+          </form>
+
+          <!-- manipulate colors thru stroke and fill attributes in svg, use rgb(19, 204, 19) as green, crimson as red -->
+          <form action="like-dislike.php" id="form-rate">
+            <button type="button" class="like" name="like" onclick="giveLike(this)">
+              <span>Like</span>
+              <svg width="24px" height="24px" viewBox="0 0 24 24">
+                <g id="Complete">
+                  <g id="thumbs-up">
+                    <path d="M7.3,11.4,10.1,3a.6.6,0,0,1,.8-.3l1,.5a2.6,2.6,0,0,1,1.4,2.3V9.4h6.4a2,2,0,0,1,1.9,2.5l-2,8a2,2,0,0,1-1.9,1.5H4.3a2,2,0,0,1-2-2v-6a2,2,0,0,1,2-2h3v10" fill="none" stroke="#005257" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                  </g>
+                </g>
+              </svg>
+            </button>
+
+            <button type="button" class="dislike" name="dislike" onclick="giveDislike(this)">
+              <span>Dislike</span>
+              <svg width="24px" height="24px" viewBox="0 0 24 24">
+                <g id="Complete"><g id="thumbs-down">
+
+                  <path d="M7.3,12.6,10.1,21a.6.6,0,0,0,.8.3l1-.5a2.6,2.6,0,0,0,1.4-2.3V14.6h6.4a2,2,0,0,0,1.9-2.5l-2-8a2,2,0,0,0-1.9-1.5H4.3a2,2,0,0,0-2,2v6a2,2,0,0,0,2,2h3V2.6" fill="none" stroke="#005257" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                </g></g>
+              </svg>
+            </button>
+          </form>
+
+          <li style='color: rgb(19, 204, 19);'>In Stock</li>
+        </section>
+      </article>
+
+      <section id='book-preferences'>
+        <p>Piggy has returned, and his newest plot is his most diabolical yet. WHAT other new villains are on the horizon? WHERE are they all coming from? And WHO will step forward to save the city when scoundrels sabotage our Supa Buddies?</p>
+
+        <form action='add-cart.php' method='post' id='form-cart'>
+          <label>
+            <!-- maximum should change depending on the db, and button submit becomes disabled if its out of stock -->
+            <span>Quantity: </span>
+            <input type='number' class='quantity' min='1' max='5' maxlength='4' value='1' required/>
+          </label>
+
+          <button type='submit' name='addcart'>Add to cart</button>
+        </form>
+      </section>
+      
+      <section id="comments">
+        <form action="" id="form-comment">
+          <textarea name="comment" id="comment-text" placeholder="Leave a comment" maxlength="400" rows="3" required></textarea>
+
+          <button type="submit" name="addComment" id="comment-sub" title="add comment" >
+            <img src="./media/images/icons/send.svg" alt="send">
+          </button>
+        </form>
+
+        <div class="aComment">
+          <!-- last name only with the first letter -->
+          <b>Comment by <span>%fullname%</span></b>
+          <p>
+            hi this book is terrible, fuck you
+          </p>
+          <form action="like-dislike.php" id="comment-rate">
+            <button type="button" class="like" name="like-comment" onclick="giveLike(this)">
+              <svg width="20px" height="20px" viewBox="0 0 24 24">
+                <g id="Complete">
+                  <g id="thumbs-up">
+                    <path d="M7.3,11.4,10.1,3a.6.6,0,0,1,.8-.3l1,.5a2.6,2.6,0,0,1,1.4,2.3V9.4h6.4a2,2,0,0,1,1.9,2.5l-2,8a2,2,0,0,1-1.9,1.5H4.3a2,2,0,0,1-2-2v-6a2,2,0,0,1,2-2h3v10" fill="none" stroke="#005257" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                  </g>
+                </g>
+              </svg>
+            </button>
+            <strong>0</strong>
+
+            <button type="button" class="dislike" name="dislike-comment" onclick="giveDislike(this)">
+              <svg width="20px" height="20px" viewBox="0 0 24 24">
+                <g id="Complete"><g id="thumbs-down">
+
+                  <path d="M7.3,12.6,10.1,21a.6.6,0,0,0,.8.3l1-.5a2.6,2.6,0,0,0,1.4-2.3V14.6h6.4a2,2,0,0,0,1.9-2.5l-2-8a2,2,0,0,0-1.9-1.5H4.3a2,2,0,0,0-2,2v6a2,2,0,0,0,2,2h3V2.6" fill="none" stroke="#005257" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                </g></g>
+              </svg>
+            </button>
+            <strong>0</strong>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <footer></footer>
+</body>
+</html>
