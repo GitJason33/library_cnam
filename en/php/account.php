@@ -35,11 +35,10 @@ if(isset($_POST['register'])){
         VALUES ($email, $bDay)
     ";
     mysqli_query($connection, $req);
+    
+    echo("
+        <h1>Account <span style='color:crimson'>$email</span> was successfully created!</h1>
+        Go back to home page <a href='../../index.html'>here</a>
+    ");
 }
-
-echo("
-<h1>Account <span style='color:crimson'>$email</span> was successfully created!</h1>
-
-Go back to home page <a href='../../index.html'>here</a>
-");
 ?>
